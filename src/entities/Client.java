@@ -48,7 +48,7 @@ public class Client {
 	}
 
 	public void setNif(Integer valueOf) {
-		// TODOo Auto-generated method stub
+		// TODO Auto-generated method stub
 		
 	}
 

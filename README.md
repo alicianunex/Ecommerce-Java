@@ -1,8 +1,9 @@
 <h1 align="center">E-Commerce 📱 </h1>
 
 <h3 align="center"> ABOUT ❓ </h3>
-
+<h6 align="center">
 Electronic commerce or e-commerce is a business model that lets firms and individuals buy and sell things over the internet.
+ </h6>
 
 <h3 align="center"> 💻 TECHNOLOGIES  & STRUCTURE 🏛 </h3>
 

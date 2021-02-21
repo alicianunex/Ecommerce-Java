@@ -33,7 +33,3 @@
 - UserList, UserEdit, UserView
 - SmarthPhoneList, SmarthPhoneEdit, SmarthPhoneView
 - StorePhoneList, StorePhoneEdit, StorePhoneView
-<<<<<<< HEAD
-=======
-
->>>>>>> 2c7dff9008431bd0963696422357252c93c750a5

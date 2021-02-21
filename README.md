@@ -4,11 +4,11 @@
 
 Electronic commerce or e-commerce is a business model that lets firms and individuals buy and sell things over the internet.
 
-### TECHNOLOGIES 💻
+### 💻 TECHNOLOGIES  & STRUCTURE 🏛
 
 #### 👤ENTITIES:
 
-#### MADE WITH JPA
+##### MADE WITH JPA
 
 - User
 - SmarthPhone
@@ -17,7 +17,7 @@ Electronic commerce or e-commerce is a business model that lets firms and indivi
 
 #### 🕹CONTROLLER:
 
-#### MADE WITH Spring MVC
+##### MADE WITH Spring MVC
 
 - UserController
 - SmarthphoneController
@@ -26,7 +26,7 @@ Electronic commerce or e-commerce is a business model that lets firms and indivi
 
 #### 🌁VIEW:
 
-#### MADE WITH Spring-Thymeleaf
+##### MADE WITH Spring-Thymeleaf
 
 - UserList, UserEdit, UserView
 - SmarthPhoneList, SmarthPhoneEdit, SmarthPhoneView

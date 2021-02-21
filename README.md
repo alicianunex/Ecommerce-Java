@@ -1,35 +1,36 @@
-<h1 align="center">E-Commerce 📱 </h1>
+# E-Commerce 📱
 
-<h3 align="center"> ABOUT ❓ </h3>
-<h6 align="center">
-Electronic commerce or e-commerce is a business model that lets firms and individuals buy and sell things over the internet.
- </h6>
+## ABOUT ❓
 
-<h3 align="center"> 💻 TECHNOLOGIES  & STRUCTURE 🏛 </h3>
+#### Electronic commerce or e-commerce is a business model
 
-<h4 align="center"> 👤ENTITIES: </h4>
-<h5 align="center"> MADE WITH JPA </h5>
-<h6 align="center">
+#### that lets firms and individuals buy and sell things over the internet.
+
+## TECHNOLOGIES 💻
+
+### 👤ENTITIES:
+
+#### MADE WITH JPA
+
 - User
 - SmarthPhone
 - ShopCart
 - Store
-</h6>
-<h4 align="center"> 🕹CONTROLLER: </h4>
 
-<h5 align="center"> MADE WITH Spring MVC </h5>
-<h6 align="center">
+### 🕹CONTROLLER:
+
+#### MADE WITH Spring MVC
+
 - UserController
 - SmarthphoneController
 - ShopCartController
 - StoreController
- </h6>
 
-<h4 align="center"> 🌁VIEW: </h4>
+#### 🌁VIEW:
 
-<h5 align="center"> MADE WITH Spring-Thymeleaf </h5>
-<h6 align="center">
+#### MADE WITH Spring-Thymeleaf
+
 - UserList, UserEdit, UserView
 - SmarthPhoneList, SmarthPhoneEdit, SmarthPhoneView
 - StorePhoneList, StorePhoneEdit, StorePhoneView
-</h6>
+

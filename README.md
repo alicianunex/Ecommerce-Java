@@ -1,14 +1,12 @@
 # E-Commerce 📱
 
-## ABOUT ❓
+### ABOUT ❓
 
-#### Electronic commerce or e-commerce is a business model
+Electronic commerce or e-commerce is a business model that lets firms and individuals buy and sell things over the internet.
 
-#### that lets firms and individuals buy and sell things over the internet.
+### TECHNOLOGIES 💻
 
-## TECHNOLOGIES 💻
-
-### 👤ENTITIES:
+#### 👤ENTITIES:
 
 #### MADE WITH JPA
 
@@ -17,7 +15,7 @@
 - ShopCart
 - Store
 
-### 🕹CONTROLLER:
+#### 🕹CONTROLLER:
 
 #### MADE WITH Spring MVC
 

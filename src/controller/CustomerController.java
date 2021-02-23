@@ -12,11 +12,20 @@ import com.example.demopagination.entities.Customer;
 
 
 @Controller
-public class CustomerController {
+public class ShopCartController {
+
 
 	
 	@Autowired
-	private CustomerRepository customerRepository;
+CustomerRepository customerrepo;
+	
+	@Autowired
+ShopCartRepository shopcartrepo;
+	
+	@Autowired
+ProductRepository	productrepo;
+	
+	
 
   @GetMapping("/customers")
   public String findCustomers(Model model){

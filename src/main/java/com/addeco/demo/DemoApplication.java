@@ -51,7 +51,7 @@ public class DemoApplication implements CommandLineRunner {
 		productrepositoy.saveAll(products1);
 		
 		
-		//            *************/
+		//     *****       *************/
 		
 		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem");
 		Manufacturer Ebay=new Manufacturer("84277777","apple","cl madrid plaza",1000);

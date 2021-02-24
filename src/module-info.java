@@ -1,3 +1,0 @@
-module Ecommerce {
-	exports entities;
-}

@@ -39,7 +39,7 @@ public class Customer implements Serializable {
 	@JoinTable(name = "customer_product",
 	joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-	private List<Product> product = new ArrayList<>();
+	private List<Product> products = new ArrayList<>();
 
 	@OneToMany(mappedBy="customer")
 	private List<ShopCart> shopcarts = new ArrayList<>();
@@ -129,17 +129,17 @@ public class Customer implements Serializable {
 	}
 
 	public List<Product> getProduct() {
-		return product;
+		return products;
 	}
 
 	public void setProduct(List<Product> product) {
-		this.product = product;
+		this.products = product;
 	}
 
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + ", password="
-				+ password + ", phoneNumber=" + phoneNumber + ", username=" + username + ", product=" + product
+				+ password + ", phoneNumber=" + phoneNumber + ", username=" + username + ", product=" + products
 				+ ", shopcarts=" + shopcarts + "]";
 	}
 

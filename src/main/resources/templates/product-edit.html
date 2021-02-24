@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link active"  style="color: black;" aria-current="page" href="#">HOME</a>
+                <a class="nav-link active"  style="color: black;" aria-current="page"  th:href="@{/products}"> Products</a>
               </li>
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
                 <a class="nav-link"  style="color: black;"  href="#">PAGES</a>
@@ -82,37 +82,49 @@
  
 
     <div class="container" >
-        <h2>Edit product</h2>
-        <p>change your product details or add new product</p>
-        <form >
-          <div class="form-group">
-            <label for="inputdefault">Name product</label>
-            <input class="form-control" id="inputdefault" type="text">
-          </div>
-          <div class="form-group">
-            <label for="inputlg">Details product</label>
-            <input class="form-control input-lg" id="inputlg" type="text">
-          </div>
+    
+    
+    
+      <form th:action="@{/products}" th:object="${product}" method="POST">
+
+					<input type="hidden" th:field="*{id}">
+					
+					
+					<div class="mb-3">
+						<label for="title" class="form-label">Title</label>
+						 <input type="text" class="form-control" id="name" th:field="*{name}">
+					</div>
+					
+					<div class="mb-3">
+					  <label for="sinopsis" class="form-label">description</label>
+					  <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
+					</div>
+					
+					<div class="mb-3">
+						<label for="duration" class="form-label">quantity</label>
+						 <input type="number" class="form-control" id="quantity" th:field="*{quantity}">
+					</div>
+					
+					<div class="mb-3">
+						<label for="duration" class="form-label">price</label>
+						 <input type="number" class="form-control" id="price" th:field="*{price}">
+					</div>
+					
+				
+					
+					<button type="submit" class="btn btn-success">Guardar</button>
+
+
+				</form>
 
        
 
 
           <br>
-        <h2>more details and comments</h2>
-        <p>write what you think about our website :</p>
-        <form  >
-          <div class="form-group"  >
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="ttt" ></textarea>
-            <a class="btn btn-success btn1 mt-5 mb-5 "id="submit" role="button">Submit</a>
-            <button class="btn btn-success btn1 mt-5 mb-5 "  >Clear comments</button>
-            <a class="btn btn-success btn1 mt-5 mb-5 " id="mainButton1"  role="button">Main Page</a>
-           
-          </div>
-        </form>
+       
+       
       </div>
-    </div>
-
+   
 
     <script>
         $(function () {

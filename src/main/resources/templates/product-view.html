@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -94,46 +94,45 @@
             
             
            
-            <div class="container">
-                <h2> Detalis of Iphone </h2>
-                <p></p>            
-                <table class="table table-dark">
-                  <thead>
-                    <tr>
-                      <th>Feature name </th>
-                      <th>Value</th>
-                     
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Marca</td>
-                      <td>Apple</td>
-                    
-                    </tr>
-                    <tr>
-                      <td>Color</td>
-                      <td>Oro</td>
-                     
-                    </tr>
-                    <tr>
-                      <td> Capacidad de la memoria </td>
-                      <td> 256 GB </td>
-                    
-                    </tr>
-                    <tr>
-                      <td>Peso del producto</td>
-                      <td> 0.53 Kilogramos </td>
-                     
-                    </tr>
-                    <tr>
-                      <td> Price </td>
-                      <td> 1333 $ </td>
-                    
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+     	<div class="container mt-5">
+		<h1>show  product</h1>
+		<hr>
+		<div class="row">
+
+			<div class="col-4">
+
+				<p>
+					<b>ID:</b> <span th:text="${product.id}"></span>
+				</p>
+				<p>
+					<b>Title:</b> <span th:text="${product.name}"></span>
+				</p>
+				<p>
+					<b>desciption:</b> <span th:text="${product.description}"></span>
+				</p>
+				<p>
+					<b>quantity:</b> <span th:text="${product.quantity}"></span>
+				</p>
+				<p>
+					<b>Price:</b> <span th:text="${product.price}"></span>
+				</p>
+
+
+			</div>
+		
+
+		</div>
+		<div class="row">
+			<div class="mt-5">
+				<a class="btn btn-info text-white" th:href="@{/movies}">Volver</a>
+			
+				<a class="btn btn-success text-white" th:href="@{/movies/{id}/edit(id=${movie.id})}">Editar</a>
+				<a class="btn btn-danger text-white" th:href="@{/movies/{id}/delete(id=${movie.id})}">Eliminar</a>
+			</div>
+		</div>
+
+
+	</div>
               
               
               

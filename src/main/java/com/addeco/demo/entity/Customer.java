@@ -59,8 +59,6 @@ public class Customer implements Serializable {
 		this.username = username;
 
 	}
-	
-	
 
 	public Long getId() {
 		return id;
@@ -118,7 +116,13 @@ public class Customer implements Serializable {
 		this.username = username;
 	}
 
-	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 
 	public List<ShopCart> getShopcarts() {
 		return shopcarts;
@@ -128,21 +132,16 @@ public class Customer implements Serializable {
 		this.shopcarts = shopcarts;
 	}
 
-	public List<Product> getProduct() {
-		return products;
-	}
-
-	public void setProduct(List<Product> product) {
-		this.products = product;
-	}
-
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + ", password="
-				+ password + ", phoneNumber=" + phoneNumber + ", username=" + username + ", product=" + products
+				+ password + ", phoneNumber=" + phoneNumber + ", username=" + username + ", products=" + products
 				+ ", shopcarts=" + shopcarts + "]";
 	}
+	
+	
 
+	
 	
 
 

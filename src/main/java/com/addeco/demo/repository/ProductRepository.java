@@ -17,7 +17,7 @@ import com.addeco.demo.entity.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
-List<Product> findAllByUsersId(Long id);
+List<Product> findAllByCustomersId(Long id);
 	
 	List<Product> findAllByCode(Integer code);
 

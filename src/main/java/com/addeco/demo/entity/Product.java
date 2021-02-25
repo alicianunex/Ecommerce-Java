@@ -35,16 +35,12 @@ public class Product implements Serializable {
 	@ManyToMany(mappedBy = "product")
 	private List<ShopCart> shopcart;
 
-	@ManyToMany(mappedBy="product")
-	private List<Customer> customers = new ArrayList<>();
+	@ManyToMany(mappedBy="products")
+	private List<Customer> customer = new ArrayList<>();
 
-	public List<Customer> getCustomer() {
-		return customers;
-	}
+	
 
-	public void setCustomer(List<Customer> customer) {
-		this.customers = customer;
-	}
+	
 
 	public Product() {
 
@@ -114,21 +110,22 @@ public class Product implements Serializable {
 		this.shopcart = shopcart;
 	}
 
-	public List<Customer> getCustomers() {
-		return customers;
+	public List<Customer> getCustomer() {
+		return customer;
 	}
 
-	public void setCustomers(List<Customer> customers) {
-		this.customers = customers;
+	public void setCustomer(List<Customer> customer) {
+		this.customer = customer;
 	}
 
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
-				+ ", price=" + price + ", manufacturer=" + manufacturer + ", shopcart=" + shopcart + ", customers="
-				+ customers + "]";
+				+ ", price=" + price + ", manufacturer=" + manufacturer + ", shopcart=" + shopcart + ", customer="
+				+ customer + "]";
 	}
 
+	 
 	
 
 

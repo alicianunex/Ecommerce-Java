@@ -70,8 +70,8 @@ public class DemoApplication implements CommandLineRunner {
 		ShopCart cart2 = new ShopCart();
 		cart1.setProduct(products1);
 		cart2.setProduct(products2);
-		customer1.setProduct(products1);
-		customer2.setProduct(products2);
+		customer1.setProducts(products1);
+		customer2.setProducts(products2);
 		customrepository.save(customer1);
 		customrepository.save(customer2);
 		cart1.setCustomer(customer1);

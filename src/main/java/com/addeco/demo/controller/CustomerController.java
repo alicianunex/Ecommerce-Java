@@ -1,7 +1,5 @@
 package com.addeco.demo.controller;
 
-package com.addeco.demo.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

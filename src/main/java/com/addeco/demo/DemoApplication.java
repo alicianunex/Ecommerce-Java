@@ -22,40 +22,39 @@ import com.addeco.demo.repository.ShopCartRepository;
 public class DemoApplication implements CommandLineRunner {
 
 	@Autowired
-	CustomerRepository customrepository;
+	CustomerRepository customerRepository;
 
 	@Autowired
-	ManuFacturerRepository manurepository;
+	ManuFacturerRepository manufacturerRepository;
 
 	@Autowired
-	ProductRepository productrepositoy;
+	ProductRepository productRepository;
 
 	@Autowired
-	ShopCartRepository shopcartrepository;
+	ShopCartRepository shopcartRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
 		Customer customer1 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem");
 		Manufacturer Amazon=new Manufacturer("84277777","apple","cl madrid plaza",1000);
-		manurepository.save(Amazon);
-		Product product1 = new Product("Iphone 12", "new versions with 8 ram", 3, 500.05,Amazon);
-		Product product2 = new Product("Iphone 11", "new versions with 6 ram", 2, 400.05,Amazon);
-		Product product3 = new Product("Iphone 10", "new versions with 4 ram", 4, 350.05,Amazon);
-		Product product4 = new Product("Iphone 9", "new versions with 4 ram", 6, 300.15,Amazon);
-		List<Product> products1 = Arrays.asList(product1, product2, product3, product4);
-		Amazon.setProducts(products1);
-		productrepositoy.saveAll(products1);
+		manufacturerRepository.save(Amazon);
+		Product product1 = new Product("Nokia", "Mobil indestructible", 1, 25.99, null);
+		product1.setManufacturer(Amazon);
+		productRepository.save(product1);
 		
 		
-		//            *************/
+		
 		
 		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem");
 		Manufacturer Ebay=new Manufacturer("84277777","apple","cl madrid plaza",1000);
-		manurepository.save(Ebay);
+		manufacturerRepository.save(Ebay);
 		Product product5 = new Product("Iphone 7", "new versions with 3 ram", 6, 300.05,Ebay);
 		Product product6 = new Product("Iphone 8", "new versions with 1 ram", 7, 600.05,Ebay);
 		Product product7 = new Product("Iphone 9", "new versions with 8 ram", 3, 310.05,Ebay);
@@ -64,20 +63,9 @@ public class DemoApplication implements CommandLineRunner {
 		
 		Ebay.setProducts(products2);
 		
-		productrepositoy.saveAll(products2);
+		productRepository.saveAll(products2);
 
-		ShopCart cart1 = new ShopCart();
-		ShopCart cart2 = new ShopCart();
-		cart1.setProduct(products1);
-		cart2.setProduct(products2);
-		customer1.setProduct(products1);
-		customer2.setProduct(products2);
-		customrepository.save(customer1);
-		customrepository.save(customer2);
-		cart1.setCustomer(customer1);
-		cart2.setCustomer(customer2);
-		shopcartrepository.save(cart1);			
-		shopcartrepository.save(cart2);	 
+	 
 		
         
 		

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link active"  style="color: black;" aria-current="page" href="#">HOME</a>
+                <a class="nav-link active"  style="color: black;" aria-current="page"  th:href="@{/products}"> Products</a>
               </li>
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
                 <a class="nav-link"  style="color: black;"  href="#">PAGES</a>
@@ -60,7 +60,7 @@
         <div class="col text-center pt-5 mt-5">
          <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
         <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Main.html" role="button">Main Page</a>
+        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="product-list.html" role="button">Main Page</a>
     </div>
     </div>
     </div>
@@ -82,44 +82,56 @@
  
 
     <div class="container" >
-        <h2>Edit product</h2>
-        <p>change your product details or add new product</p>
-        <form >
-          <div class="form-group">
-            <label for="inputdefault">Name product</label>
-            <input class="form-control" id="inputdefault" type="text">
-          </div>
-          <div class="form-group">
-            <label for="inputlg">Details product</label>
-            <input class="form-control input-lg" id="inputlg" type="text">
-          </div>
+    
+    	<h1>Campos del producto <span th:text="${product.id}"></span></h1>
+    
+      <form th:action="@{/products}" th:object="${product}" method="POST">
+
+					<input type="hidden" th:field="*{id}">
+					
+					
+					<div class="mb-3">
+						<label for="name" class="form-label">Product name</label>
+						 <input type="text" class="form-control" id="name" th:field="*{product.name}">
+					</div>
+					
+					<div class="mb-3">
+					  <label for="description" class="form-label">Product description</label>
+					  <textarea class="form-control" id="description" rows="3" th:field="*{product.description}"></textarea>
+					</div>
+					
+					<div class="mb-3">
+						<label for="quantity" class="form-label">Product quantity</label>
+						 <input type="number" class="form-control" id="quantity" th:field="*{product.quantity}">
+					</div>
+					
+					<div class="mb-3">
+						<label for="price" class="form-label">Product price</label>
+						 <input type="number" class="form-control" id="price" th:field="*{product.price}">
+					</div>
+					
+				
+					
+					<button type="submit" class="btn btn-success" th:href="@{/products}">Guardar</button>
+
+
+				</form>
 
        
 
 
           <br>
-        <h2>more details and comments</h2>
-        <p>write what you think about our website :</p>
-        <form  >
-          <div class="form-group"  >
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="ttt" ></textarea>
-            <a class="btn btn-success btn1 mt-5 mb-5 "id="submit" role="button">Submit</a>
-            <button class="btn btn-success btn1 mt-5 mb-5 "  >Clear comments</button>
-            <a class="btn btn-success btn1 mt-5 mb-5 " id="mainButton1"  role="button">Main Page</a>
-           
-          </div>
-        </form>
+       
+       
       </div>
-    </div>
-
+   
 
     <script>
         $(function () {
 
             // Cuando hacemos click en un botón nos vamos a otra página
             $("#mainButton1").click(function () {
-                window.location.href = "Main.html";
+                window.location.href = "product-list.html";
             });
 
         });

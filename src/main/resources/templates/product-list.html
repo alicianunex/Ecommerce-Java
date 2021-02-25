@@ -50,13 +50,13 @@
 
     <section class="home">
     <div class="container">
-    <div class="row">
-        <div class="col text-center pt-5 mt-5">
-         <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
-        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Edit.html" role="button">Custom Yours</a>
-    </div>
-    </div>
+	    <div class="row">
+	        <div class="col text-center pt-5 mt-5">
+	        	<div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
+	        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
+	        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" th:href="@{/products/{id}/product-edit.html}" role="button">Custom Yours</a>
+	    	</div>
+	    </div>
     </div>
     </section>
 
@@ -73,21 +73,23 @@
     </section>
     
 	<div class="container mt-5">
-		<h1>Cartelera de <span class="red">smartiphones</span></h1>
+		<h1>shop of <span class="red">smartiphones</span></h1>
 		<hr>
 		<div th:if="${error}">Error</div>
 		<div class="row">
 
 			<div class="col">
 
-			
+				<a class="btn btn-success" th:href="@{/products/new}">Add a new product</a>
+				<a class="btn btn-danger" th:href="@{/products/delete}">Delete all products</a>
 				
 				<table class="table table-dark table-striped mt-3">
 				
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
-							<th scope="col">Title</th>
+							
+							<th scope="col">Product name</th>
 							<th scope="col">description</th>
 							<th scope="col">quantity</th>
 							<th scope="col">price</th>
@@ -95,14 +97,20 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="smartiphone: ${products}">
-							<th scope="row" th:utext="${smartiphone.id}"></th>
-							<td th:utext="${smartiphone.name}"></td>
-							<td th:utext="${smartiphone.description}"></td>
-							<td th:utext="${smartiphone.quantity}"></td>
-					          	<td th:utext="${smartiphone.price}"></td>
+						<tr th:each="product: ${products}">
+							<th scope="row" th:utext="${product.id}"></th>
+							<td th:utext="${product.name}"></td>
+							<td th:utext="${product.description}"></td>
+							<td th:utext="${product.quantity}"></td>
+					        <td th:utext="${product.price}"></td>
+					          	
+					          	
 					          			<td>
-					          			<a class="btn btn-success text-white" th:href="@{/shopcart}"> buy it</a>
+					          	<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${product.id})}">Show</a>
+								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${product.id})}">Edit</a>
+								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Delete</a>
+                                    
+					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addaddproduct(id=${product.id})}">buy it</a>
 					          			</td>  		</tr>
 					</tbody>
 				</table>

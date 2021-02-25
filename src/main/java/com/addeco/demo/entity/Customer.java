@@ -39,15 +39,32 @@ public class Customer implements Serializable {
 	@JoinTable(name = "customer_product",
 	joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-	private List<Product> product = new ArrayList<>();
+	private List<Product> products = new ArrayList<>();
 
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customers")
 	private List<ShopCart> shopcarts = new ArrayList<>();
 
 	
 	
 	public Customer() {
 	}
+
+	
+	
+	public Customer(Long id, String name, String address, String email, String password, String phoneNumber,
+			String username, List<Product> products) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.username = username;
+		this.products = products;
+	}
+
+
 
 	public Customer(String name, String address, String email, String password, String phoneNumber, String username) {
 
@@ -59,8 +76,6 @@ public class Customer implements Serializable {
 		this.username = username;
 
 	}
-	
-	
 
 	public Long getId() {
 		return id;
@@ -118,7 +133,13 @@ public class Customer implements Serializable {
 		this.username = username;
 	}
 
-	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 
 	public List<ShopCart> getShopcarts() {
 		return shopcarts;
@@ -128,21 +149,16 @@ public class Customer implements Serializable {
 		this.shopcarts = shopcarts;
 	}
 
-	public List<Product> getProduct() {
-		return product;
-	}
-
-	public void setProduct(List<Product> product) {
-		this.product = product;
-	}
-
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + ", password="
-				+ password + ", phoneNumber=" + phoneNumber + ", username=" + username + ", product=" + product
+				+ password + ", phoneNumber=" + phoneNumber + ", username=" + username + ", products=" + products
 				+ ", shopcarts=" + shopcarts + "]";
 	}
+	
+	
 
+	
 	
 
 

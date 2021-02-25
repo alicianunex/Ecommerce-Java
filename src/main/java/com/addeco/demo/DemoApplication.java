@@ -51,9 +51,9 @@ public class DemoApplication implements CommandLineRunner {
 		productrepositoy.saveAll(products1);
 		
 		
-		//            *************/
+		//     *****       *************/
 		
-		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem");
+		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@aa", "1234", "633258741", "aymansalem");
 		Manufacturer Ebay=new Manufacturer("84277777","apple","cl madrid plaza",1000);
 		manurepository.save(Ebay);
 		Product product5 = new Product("Iphone 7", "new versions with 3 ram", 6, 300.05,Ebay);
@@ -70,12 +70,12 @@ public class DemoApplication implements CommandLineRunner {
 		ShopCart cart2 = new ShopCart();
 		cart1.setProduct(products1);
 		cart2.setProduct(products2);
-		customer1.setProduct(products1);
-		customer2.setProduct(products2);
+		customer1.setProducts(products1);
+		customer2.setProducts(products2);
 		customrepository.save(customer1);
 		customrepository.save(customer2);
-		cart1.setCustomer(customer1);
-		cart2.setCustomer(customer2);
+		cart1.setCustomers(customer1);
+		cart2.setCustomers(customer2);
 		shopcartrepository.save(cart1);			
 		shopcartrepository.save(cart2);	 
 		

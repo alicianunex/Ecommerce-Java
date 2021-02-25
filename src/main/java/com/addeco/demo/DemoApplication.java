@@ -74,8 +74,8 @@ public class DemoApplication implements CommandLineRunner {
 		customer2.setProducts(products2);
 		customrepository.save(customer1);
 		customrepository.save(customer2);
-		cart1.setCustomer(customer1);
-		cart2.setCustomer(customer2);
+		cart1.setCustomers(customer1);
+		cart2.setCustomers(customer2);
 		shopcartrepository.save(cart1);			
 		shopcartrepository.save(cart2);	 
 		

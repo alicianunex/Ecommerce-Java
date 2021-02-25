@@ -39,46 +39,58 @@ public class ShopCart implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="customer_id")
-	private Customer customer;
+	private Customer customers;
 
 	
 	
 	public ShopCart() {
 		
 	}
-	
-	
+
+
 
 	public Long getId() {
 		return id;
 	}
 
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 
 	public List<Product> getProduct() {
 		return product;
 	}
 
+
+
 	public void setProduct(List<Product> product) {
 		this.product = product;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+
+
+	public Customer getCustomers() {
+		return customers;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+
+
+	public void setCustomers(Customer customers) {
+		this.customers = customers;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "ShopCart [id=" + id + ", product=" + product + ", customer=" + customer + "]";
+		return "ShopCart [id=" + id + ", product=" + product + ", customers=" + customers + "]";
 	}
+	
+	
 
 	
 	

@@ -41,13 +41,30 @@ public class Customer implements Serializable {
 	inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
 	private List<Product> products = new ArrayList<>();
 
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customers")
 	private List<ShopCart> shopcarts = new ArrayList<>();
 
 	
 	
 	public Customer() {
 	}
+
+	
+	
+	public Customer(Long id, String name, String address, String email, String password, String phoneNumber,
+			String username, List<Product> products) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.username = username;
+		this.products = products;
+	}
+
+
 
 	public Customer(String name, String address, String email, String password, String phoneNumber, String username) {
 

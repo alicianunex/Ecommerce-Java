@@ -37,7 +37,7 @@ ShopCartRepository shopcartrepo;
 	
 	
 	@GetMapping("/products")
-	public String findMovies(Model model, HttpSession session) {
+	public String findproducts(Model model, HttpSession session) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		if(customer != null)
 			model.addAttribute("customer", customer);
@@ -47,7 +47,7 @@ ShopCartRepository shopcartrepo;
 	
 	
 	@GetMapping("/userproducts")
-	public String findUserMovies(Model model, HttpSession session) {
+	public String findUserProducts(Model model, HttpSession session) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		if(customer != null)
 			model.addAttribute("customer", customer);
@@ -57,7 +57,7 @@ ShopCartRepository shopcartrepo;
 	
 	
 	@GetMapping("/products/{id}/view")
-	public String viewMovie(@PathVariable Long id, Model model) {
+	public String viewProduct(@PathVariable Long id, Model model) {
 		Optional<Product> productOpt = productrepo.findById(id);
 		if (!productOpt.isPresent()) {
 			model.addAttribute("error", "ID product not found.");

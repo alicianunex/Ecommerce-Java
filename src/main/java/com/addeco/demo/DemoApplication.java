@@ -53,7 +53,7 @@ public class DemoApplication implements CommandLineRunner {
 		
 		//     *****       *************/
 		
-		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem");
+		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@aa", "1234", "633258741", "aymansalem");
 		Manufacturer Ebay=new Manufacturer("84277777","apple","cl madrid plaza",1000);
 		manurepository.save(Ebay);
 		Product product5 = new Product("Iphone 7", "new versions with 3 ram", 6, 300.05,Ebay);

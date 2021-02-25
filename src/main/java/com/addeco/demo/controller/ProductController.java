@@ -102,13 +102,13 @@ ShopCartRepository shopcartrepo;
 		productrepo.deleteAll();
 		return "redirect:/products";
 	}
-	
-	@GetMapping("/products/{code}/search")
-	public String searchProductByCode(@PathVariable Integer code, Model model) {
-		model.addAttribute("products", productrepo.findAllByCode(code));
-		return "product-list";
-		
-	}
+//	
+//	@GetMapping("/products/{code}/search")
+//	public String searchProductByCode(@PathVariable Integer code, Model model) {
+//		model.addAttribute("products", productrepo.findAllByCode(code));
+//		return "product-list";
+//		
+//	}
 	
 	
 	

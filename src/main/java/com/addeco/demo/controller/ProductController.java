@@ -51,7 +51,7 @@ ShopCartRepository shopcartrepo;
 		Customer customer = (Customer) session.getAttribute("customer");
 		if(customer != null)
 			model.addAttribute("customer", customer);
-		model.addAttribute("products", productrepo.findAllByUsersId(customer.getId()));
+		model.addAttribute("products", productrepo.findAllByCustomersId(customer.getId()));
 		return "product-list";
 	}
 	
@@ -60,7 +60,7 @@ ShopCartRepository shopcartrepo;
 	public String viewMovie(@PathVariable Long id, Model model) {
 		Optional<Product> productOpt = productrepo.findById(id);
 		if (!productOpt.isPresent()) {
-			model.addAttribute("error", "ID movie not found.");
+			model.addAttribute("error", "ID product not found.");
 			model.addAttribute("products", productrepo.findAll());
 			return "product-list";
 		}
@@ -84,7 +84,7 @@ ShopCartRepository shopcartrepo;
 	}
 	
 	@PostMapping("/products")
-	public String saveProduct(@ModelAttribute("movie") Product product) {
+	public String saveProduct(@ModelAttribute("product") Product product) {
 		System.out.println(product);
 		productrepo.save(product);
 		return "redirect:/products";

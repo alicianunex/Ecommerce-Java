@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -94,51 +94,33 @@
             
             
            
-            <div class="container">
-                <h2> Detalis of Iphone </h2>
-                <p></p>            
-                <table class="table table-dark">
-                  <thead>
-                    <tr>
-                      <th>Feature name </th>
-                      <th>Value</th>
-                     
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Marca</td>
-                      <td>Apple</td>
-                    
-                    </tr>
-                    <tr>
-                      <td>Color</td>
-                      <td>Oro</td>
-                     
-                    </tr>
-                    <tr>
-                      <td> Capacidad de la memoria </td>
-                      <td> 256 GB </td>
-                    
-                    </tr>
-                    <tr>
-                      <td>Peso del producto</td>
-                      <td> 0.53 Kilogramos </td>
-                     
-                    </tr>
-                    <tr>
-                      <td> Price </td>
-                      <td> 1333 $ </td>
-                    
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              
-              
-              
-            </div>
-          </div>
+           
+           
+           <div th:replace="layout :: navbar"></div>
+
+	<div class="container mt-5">
+		<h1>Order in progress</h1>
+		<hr>
+
+		<div class="row">
+
+			<div class="col">
+
+								
+				<div class="alert alert-success" role="alert">
+				  Felicidades! Has completado tu pedido.
+				  Tu pedido está en progreso y pronto lo enviaremos.
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
 
       
 

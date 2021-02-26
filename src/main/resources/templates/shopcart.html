@@ -82,13 +82,13 @@
 		<h1>Basket of <span class="red">products</span></h1>
 		<hr>
 		<h3>Shopcart items: <span th:utext="${shopcart_items}"></span></h3>
+		<h3>Total price: <span th:utext="${totalPrice}"></span></h3>
 		<div th:if="${error}">Error</div>
 		<div class="row">
 
 			<div class="col">
-
-				<a class="btn btn-success" th:href="@{/products/new}">add product</a>
-				<a class="btn btn-danger" th:href="@{/products/delete}">delete product</a>
+                  <a class="btn btn-success" th:href="@{/shopcarts/checkout}">Finalizar compra</a>
+				
 				
 				<table class="table table-dark table-striped mt-3">
 				
@@ -105,7 +105,7 @@
 					</thead>
 					<tbody>
 		
-						<tr th:each="product: ${products}">
+						<tr th:each="product: ${shopcart.products}">
 							<th scope="row" th:utext="${product.id}"></th>
 							<td th:utext="${product.name}"></td>
 							<td th:utext="${product.description}"></td>

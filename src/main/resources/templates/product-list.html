@@ -36,7 +36,8 @@
               </li>
 
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link"  style="color: black;" href="#">BLOG</a>
+              <a class="nav-link" style="color: black;" th:href="@{/logout}">logout</a>
+               
               </li>
                
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
@@ -75,6 +76,7 @@
 	<div class="container mt-5">
 		<h1>shop of <span class="red">smartiphones</span></h1>
 		<hr>
+		<h3>Shopcart items: <span th:utext="${shopcart_items}"></span></h3>
 		<div th:if="${error}">Error</div>
 		<div class="row">
 
@@ -110,7 +112,7 @@
 								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${smartiphone.id})}">Edit</a>
 								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${smartiphone.id})}">Delete</a>
                                     
-					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addaddproduct(id=${smartiphone.id})}">buy it</a>
+					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addproduct(id=${smartiphone.id})}">buy it</a>
 					          			</td>  		</tr>
 					</tbody>
 				</table>

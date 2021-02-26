@@ -39,7 +39,7 @@ public class ShopCart implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="customer_id")
-	private Customer customers;
+	private Customer customer;
 
 	
 	
@@ -74,20 +74,20 @@ public class ShopCart implements Serializable {
 
 
 	public Customer getCustomers() {
-		return customers;
+		return customer;
 	}
 
 
 
-	public void setCustomers(Customer customers) {
-		this.customers = customers;
+	public void setCustomers(Customer customer) {
+		this.customer = customer;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "ShopCart [id=" + id + ", product=" + product + ", customers=" + customers + "]";
+		return "ShopCart [id=" + id + ", product=" + product + ", customer=" + customer + "]";
 	}
 	
 	

@@ -51,8 +51,9 @@ ProductRepository	productrepo;
 			
 			
 			Optional<Product> productOpt = productrepo.findById(id);
-			if (productOpt.isPresent()) { // If movie exists then add it to shopcart
+			if (productOpt.isPresent()) { // If product exists then add it to shopcart
 				Product product = productOpt.get();
+				
 				
 				if (!shopcart.getProducts().contains(product)) {
 					shopcart.getProducts().add(product);

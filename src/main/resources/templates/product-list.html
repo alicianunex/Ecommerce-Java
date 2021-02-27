@@ -26,22 +26,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link active"  style="color: black;" aria-current="page" href="#">HOME</a>
+                 <a class="nav-link" style="color: black;" th:href="@{/products}">PRODUCTS</a>
               </li>
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link"  style="color: black;"  href="#">PAGES</a>
+                 <a class="nav-link" style="color: black;" th:href="@{/usermovies}">MyPRODUCTS</a>
               </li>
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link"  style="color: black;" href="#">SHOP</a>
+               <a class="nav-link" style="color: black;" th:href="@{/shopcart}">shopcart</a>
               </li>
 
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-              <a class="nav-link" style="color: black;" th:href="@{/logout}">logout</a>
+              <a class="nav-link" style="color: black;" th:href="@{/shopcarts/list}">orders</a>
                
               </li>
                
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link link-primary"  style="color: black;" href="#">CONTACT US</a>
+                <a class="nav-link" style="color: black;" th:href="@{/logout}">logout</a>
               </li>
             </ul>
            

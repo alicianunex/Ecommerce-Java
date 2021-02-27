@@ -19,66 +19,7 @@
   <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255,0.859);position: fixed;width: 100%;z-index:300;">
-        <div class="container-fluid ml-5">
-          <a class="navbar-brand" href="#">Mobile Shop</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                 <a class="nav-link" style="color: black;" th:href="@{/products}">PRODUCTS</a>
-              </li>
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                 <a class="nav-link" style="color: black;" th:href="@{/usermovies}">MyPRODUCTS</a>
-              </li>
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-               <a class="nav-link" style="color: black;" th:href="@{/shopcart}">shopcart</a>
-              </li>
-
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-              <a class="nav-link" style="color: black;" th:href="@{/shopcarts/list}">orders</a>
-               
-              </li>
-               
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link" style="color: black;" th:href="@{/logout}">logout</a>
-              </li>
-            </ul>
-           
-          </div>
-        </div>
-      </nav>
-
-
-   
-    <section class="home">
-    <div class="container">
-    <div class="row">
-        <div class="col text-center pt-5 mt-5">
-         <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
-        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Main.html" role="button">Main Page</a>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="image">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <img src="img/macbook.png"  class="img-fluid img1" id="img1" >
-                </div>
-            </div>
-        </div>
-
-    </section>
-
+   <div th:replace="layout :: navbar"></div>
       
  
 
@@ -99,11 +40,11 @@
 		
 						<tr th:each="cart: ${usercart}">
 							
-							<td th:utext="${cart.id}"></td>
+							<td th:utext="${cart.id}"></td>s
 						<td>
 						
-							<div th:each="movie: ${cart.movies}">
-							<span class="badge bg-info text-dark" th:utext="${movie.title}"></span>
+							<div th:each="product: ${cart.products}">
+							<span class="badge bg-info text-dark" th:utext="${product.name}"></span>
 								
 							</div>
 						</td>
@@ -172,52 +113,7 @@ $("#submit").click(function () {
 
 
 
-    <footer class="container-fluid py-5 bg-light ">
-        <div class="row">
-          <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-            <small class="d-block mb-3 text-muted">&copy; 2017-2021</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary" href="#">Random feature</a></li>
-              <li><a class="link-secondary" href="#">Team feature</a></li>
-              <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-              <li><a class="link-secondary" href="#">Another one</a></li>
-              <li><a class="link-secondary" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Resource name</a></li>
-              <li><a class="link-secondary" href="#">Resource</a></li>
-              <li><a class="link-secondary" href="#">Another resource</a></li>
-              <li><a class="link-secondary" href="#">Final resource</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Business</a></li>
-              <li><a class="link-secondary" href="#">Education</a></li>
-              <li><a class="link-secondary" href="#">Government</a></li>
-              <li><a class="link-secondary" href="#">Gaming</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Team</a></li>
-              <li><a class="link-secondary" href="#">Locations</a></li>
-              <li><a class="link-secondary" href="#">Privacy</a></li>
-              <li><a class="link-secondary" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+     <div th:replace="layout :: footer"></div>
       
    <!-- Optional JavaScript -->
 <!-- Popper.js first, then Bootstrap JS -->

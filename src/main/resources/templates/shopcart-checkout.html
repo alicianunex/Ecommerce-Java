@@ -15,67 +15,7 @@
   </head>
   <body>
 
-
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255,0.859);position: fixed;width: 100%;z-index:300;">
-        <div class="container-fluid ml-5">
-          <a class="navbar-brand" href="#">Mobile Shop</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                 <a class="nav-link" style="color: black;" th:href="@{/products}">PRODUCTS</a>
-              </li>
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                 <a class="nav-link" style="color: black;" th:href="@{/usermovies}">MyPRODUCTS</a>
-              </li>
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-               <a class="nav-link" style="color: black;" th:href="@{/shopcart}">shopcart</a>
-              </li>
-
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-              <a class="nav-link" style="color: black;" th:href="@{/shopcarts/list}">orders</a>
-               
-              </li>
-               
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link" style="color: black;" th:href="@{/logout}">logout</a>
-              </li>
-            </ul>
-           
-          </div>
-        </div>
-      </nav>
-
-
-   
-    <section class="home">
-    <div class="container">
-    <div class="row">
-        <div class="col text-center pt-5 mt-5">
-         <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
-        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Main.html" role="button">Main Page</a>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="image">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <img src="img/macbook.png"  class="img-fluid img1" id="img1" >
-                </div>
-            </div>
-        </div>
-
-    </section>
-
+   <div th:replace="layout :: navbar"></div>
       
 
     <section class="product">
@@ -135,25 +75,6 @@
    <a class="btn  btn-show  " style="margin-left: 15px;margin-top: 5px;" id="mainButton1" role="button" href="#">Main Page</a>
    <a class="btn  btn-show pr-5  float-right" style="margin-right: 15px;margin-top: 5px;" id="mainButton2" role="button" href="#">Edit Page</a>
 
-<script>
-
-   $(function () {
-
-    // Cuando hacemos click en un botón nos vamos a otra página
-    $("#mainButton1").click(function () {
-        window.location.href = "Main.html";
-    });
-
-});
-
-
-// Cuando hacemos click en un botón nos vamos a otra página
-$("#mainButton2").click(function () {
-    window.location.href = "Edit.html";
-});
-
-
-</script>
 
 
 
@@ -164,24 +85,7 @@ $("#mainButton2").click(function () {
 
 
 
-    <footer class="footer">
-        <div class="container mt-2 p-2" style="color: white;">
-            <div class="row">
-                <div class="col pt-3 ">
-                    <h4>Who Are We</h4><hr>
-                    <p>We're a Company for technology <br> Happy to help you to find best device whatever it is.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container" style="color: white;margin-top: 15px;">
-        <div class="row">
-            <div class="col text-center pt-5">
-                © Copyright 2021 : <a href="mailto:aymanayman@gmail.com" style="color: white;" rule="button">  Ayman Abusafia</a>
-            </div>
-        </div>
-        </div>
-    </footer>
+   <div th:replace="layout :: footer"></div>
        <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

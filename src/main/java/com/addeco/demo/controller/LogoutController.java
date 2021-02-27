@@ -4,11 +4,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.addeco.demo.entity.Customer;
-import com.addeco.demo.entity.ShopCart;
+
 import com.addeco.demo.repository.CustomerRepository;
 import com.addeco.demo.repository.ProductRepository;
 import com.addeco.demo.repository.ShopCartRepository;
@@ -26,16 +25,12 @@ ShopCartRepository shopcartrepo;
 ProductRepository	productrepo;
 	
 	
-	@GetMapping("/logout")
-	public String logout(Model model, HttpSession session) {
+
 		 
 		
-		Customer customer=(Customer)session.getAttribute("customer");
-		session.setAttribute("customer", null);	
-		session.invalidate();
-
-
-		 return "redirect:/login";
+		@GetMapping("/logout")
+		public String logout(HttpSession session) {
+			session.invalidate();
+			return "login";
+		}
 	}
-
-}

@@ -41,6 +41,17 @@ public class Product implements Serializable {
 
 	
 
+	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer,
+			List<Customer> customers) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.quantity = quantity;
+		this.price = price;
+		this.manufacturer = manufacturer;
+		this.customers = customers;
+	}
+
 	public Product() {
 
 	}

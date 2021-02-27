@@ -54,14 +54,14 @@ ProductRepository	productrepo;
 			if (productOpt.isPresent()) { // If movie exists then add it to shopcart
 				Product product = productOpt.get();
 				
-				if (!shopcart.getProduct().contains(product)) {
-					shopcart.getProduct().add(product);
+				if (!shopcart.getProducts().contains(product)) {
+					shopcart.getProducts().add(product);
 				}
 			}
 			
 			session.setAttribute("shopcart", shopcart);
 			
-			model.addAttribute("shopcart_items", shopcart.getProduct().size());
+			model.addAttribute("shopcart_items", shopcart.getProducts().size());
 			model.addAttribute("products", productrepo.findAll());
 
 			return "product-list";
@@ -78,8 +78,8 @@ ProductRepository	productrepo;
     	  Optional<Product> productopt=productrepo.findById(id);
     	  if(productopt.isPresent()) {
     		  Product product=productopt.get();
-         if(shopcart.getProduct().contains(product)) {
-        	 shopcart.getProduct().remove(product);
+         if(shopcart.getProducts().contains(product)) {
+        	 shopcart.getProducts().remove(product);
         	 
          }
     		  
@@ -87,7 +87,7 @@ ProductRepository	productrepo;
     	  
     	  session.setAttribute("shopcart",shopcart);
     	  model.addAttribute("totalPrice",calculateTotalPrice(shopcart));
-    	  model.addAttribute("shopcart_items",shopcart.getProduct().size());
+    	  model.addAttribute("shopcart_items",shopcart.getProducts().size());
     	  model.addAttribute("products",productrepo.findAll());
     	  return "shopcart";
     	  
@@ -102,18 +102,18 @@ ProductRepository	productrepo;
     		  shopcart=new ShopCart();
     	  }
     	  model.addAttribute("totalPrice",calculateTotalPrice(shopcart));
-    	  model.addAttribute("shopcart_items",shopcart.getProduct().size());
+    	  model.addAttribute("shopcart_items",shopcart.getProducts().size());
     	  model.addAttribute("shopcart",shopcart);
     	  return "shopcart";
     	  
       }
       
       private double calculateTotalPrice(ShopCart shopcart) {
-    	  if(shopcart==null||shopcart.getProduct()==null) {
+    	  if(shopcart==null||shopcart.getProducts()==null) {
     		  return 0;
     	  }
     	  double totalPrice=0;
-    	  for(Product product:shopcart.getProduct()) {
+    	  for(Product product:shopcart.getProducts()) {
     		  if(product.getPrice()!=null)
     			  totalPrice+=product.getPrice();
     		  

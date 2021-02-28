@@ -1,6 +1,7 @@
 package com.addeco.demo.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 
 
@@ -40,10 +43,13 @@ public class Manufacturer implements Serializable {
 	
 	
 	@OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
-	private List<Product> products;
+	private List<Product> products= new ArrayList<Product>();
 
 
-	public Manufacturer() {}
+	public Manufacturer() {
+		
+		super();
+	}
 
 
 	public Manufacturer(String cif, String name, String direction, Integer numEmployees) {
@@ -121,7 +127,10 @@ public class Manufacturer implements Serializable {
 		return "Manufacturer [id=" + id + ", cif=" + cif + ", name=" + name + ", direction=" + direction
 				+ ", numEmployees=" + numEmployees + ", products=" + products + "]";
 	}
+
+
 	
+
 	
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.addeco.demo.entity.Customer;
 import com.addeco.demo.entity.Product;
 import com.addeco.demo.repository.CustomerRepository;
+import com.addeco.demo.repository.ManuFacturerRepository;
 import com.addeco.demo.repository.ProductRepository;
 import com.addeco.demo.repository.ShopCartRepository;
 
@@ -34,6 +35,8 @@ ShopCartRepository shopcartrepo;
 	
 	@Autowired
    ProductRepository productrepo;
+	
+	ManuFacturerRepository manufacturerrep;
 	
 	
 	@GetMapping("/products")
@@ -71,15 +74,30 @@ ShopCartRepository shopcartrepo;
 	@GetMapping("/products/new")
 	public String newProduct(Model model) {
 		model.addAttribute("product", new Product());
+		//model.addAttribute("manufacturers", manufacturerrep.findAll());
 		return "product-edit";
 		
 	}
 	
 	
-	@GetMapping("/products/{id}/edit")
+	@GetMapping("/{id}/edit")
 	public String editProduct(@PathVariable Long id, Model model) {
-		model.addAttribute("product", productrepo.findById(id).get());
-		return "product-edit";
+		if(id == null) // 1. se comprueba que el id no sea nulo
+			return "redirect:/products";
+		
+		Optional<Product> productOpt = productrepo.findById(id);
+		if (productOpt.isPresent()) { 
+			model.addAttribute("product", productOpt.get());
+		//model.addAttribute("manufacturers", manufacturerrep.findAll());
+			
+			return "product-edit";
+		}
+		model.addAttribute("error", "No existe el producto solicitado");
+		return "redirect:/products";
+		
+		
+		
+	
 		
 	}
 	

@@ -46,7 +46,7 @@ public class DemoApplication implements CommandLineRunner {
 		Manufacturer Amazon=new Manufacturer("84277777","apple","cl madrid plaza",1000);
 		manurepository.save(Amazon);
 		Product product1 = new Product("Iphone 12", "new versions with 8 ram", 3, 500.05,Amazon,customer);
-	
+	    product1.setCustomers(customer);
 		Product product2 = new Product("Iphone 11", "new versions with 6 ram", 2, 400.0,Amazon);
 		Product product3 = new Product("Iphone 10", "new versions with 4 ram", 4, 350.00,Amazon);
 		Product product4 = new Product("Iphone 9", "new versions with 4 ram", 6, 300.15,Amazon);

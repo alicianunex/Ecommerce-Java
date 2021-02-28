@@ -78,7 +78,7 @@
 					          	
 					          			<td>
 					          			<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${smartiphone.id})}">Show</a>
-								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${smartiphone.id})}">Edit</a>
+								<a class="btn btn-success text-white" th:href="@{/{id}/edit(id=${smartiphone.id})}">Edit</a>
 								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${smartiphone.id})}">Delete</a>
                                     
 					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addproduct(id=${smartiphone.id})}">buy it</a>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,43 +14,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
-    <title>Edit Product</title>
+    <title>Edit Store</title>
   </head>
   <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255,0.859);position: fixed;width: 100%;z-index:300;">
-        <div class="container-fluid ml-5">
-          <a class="navbar-brand" href="#">Mobile Shop</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link active"  style="color: black;" aria-current="page" href="#">HOME</a>
-              </li>
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link"  style="color: black;"  href="#">PAGES</a>
-              </li>
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link"  style="color: black;" href="#">SHOP</a>
-              </li>
-
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link"  style="color: black;" href="#">BLOG</a>
-              </li>
-               
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
-                <a class="nav-link link-primary"  style="color: black;" href="#">CONTACT US</a>
-              </li>
-            </ul>
-           
-          </div>
-        </div>
-      </nav>
+    <div th:replace="layout :: navbar"></div>
 
 
    
@@ -81,67 +50,58 @@
       
  
 
-    <div class="container" >
-        <h2>Edit product</h2>
-        <p>change your product details or add new product</p>
-        <form >
-          <div class="form-group">
-            <label for="inputdefault">Name product</label>
-            <input class="form-control" id="inputdefault" type="text">
-          </div>
-          <div class="form-group">
-            <label for="inputlg">Details product</label>
-            <input class="form-control input-lg" id="inputlg" type="text">
-          </div>
+    
+ <div class="container" >
+    
+    	<h1>Edit  Smartphone  <span th:text="${manufacturer.id}"></span></h1>
+    
+      <form th:action="@{/manufacturers}" th:object="${manufacturer}" method="POST">
+
+					<input type="hidden" th:field="*{id}">
+					
+					
+					<div class="mb-3">
+						<label for="title" class="form-label">name</label>
+						 <input type="text" class="form-control" id="name" th:field="*{name}">
+					</div>
+					
+					<div class="mb-3">
+					  <label for="sinopsis" class="form-label">direction</label>
+					  <textarea class="form-control" id="description" rows="3" th:field="*{direction}"></textarea>
+					</div>
+					
+					<div class="mb-3">
+						<label for="duration" class="form-label">numEmployees</label>
+						 <input type="number" class="form-control" id="quantity" th:field="*{numEmployees}">
+					</div>
+					
+					<div class="mb-3">
+						<label for="duration" class="form-label">cif</label>
+						 <input type="number" class="form-control" id="cif" th:field="*{cif}">
+					</div>
+					
+				<!-- 	<label class="form-check-label" for="product">products</label>
+					<select id="product" th:field="*{product}" class="form-select" >
+					
+					  <option th:each="produc: ${products}" th:value="${produc.id}" th:text="${produc.name}"></option>
+
+					</select> -->
+						
+					<button type="submit" class="btn btn-success">Guardar</button>
+
+
+				</form>
 
        
 
 
           <br>
-        <h2>more details and comments</h2>
-        <p>write what you think about our website :</p>
-        <form  >
-          <div class="form-group"  >
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="ttt" ></textarea>
-            <a class="btn btn-success btn1 mt-5 mb-5 "id="submit" role="button">Submit</a>
-            <button class="btn btn-success btn1 mt-5 mb-5 "  >Clear comments</button>
-            <a class="btn btn-success btn1 mt-5 mb-5 " id="mainButton1"  role="button">Main Page</a>
-           
-          </div>
-        </form>
+       
+       
       </div>
-    </div>
+   
 
-
-    <script>
-        $(function () {
-
-            // Cuando hacemos click en un botón nos vamos a otra página
-            $("#mainButton1").click(function () {
-                window.location.href = "Main.html";
-            });
-
-        });
-        
-        $(function () {
-
-$("#submit").click(function () {
-
-    if (confirm("¿Está seguro de que desea editar este producto?")) {
-        
-        $(this).parent().parent().hide();
-    }
-    return false;
-
-
-});
-
-}); 
-
-        
-    
-    </script>
+   
 
 
 
@@ -162,53 +122,7 @@ $("#submit").click(function () {
 
 
 
-
-    <footer class="container-fluid py-5 bg-light ">
-        <div class="row">
-          <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-            <small class="d-block mb-3 text-muted">&copy; 2017-2021</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary" href="#">Random feature</a></li>
-              <li><a class="link-secondary" href="#">Team feature</a></li>
-              <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-              <li><a class="link-secondary" href="#">Another one</a></li>
-              <li><a class="link-secondary" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Resource name</a></li>
-              <li><a class="link-secondary" href="#">Resource</a></li>
-              <li><a class="link-secondary" href="#">Another resource</a></li>
-              <li><a class="link-secondary" href="#">Final resource</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Business</a></li>
-              <li><a class="link-secondary" href="#">Education</a></li>
-              <li><a class="link-secondary" href="#">Government</a></li>
-              <li><a class="link-secondary" href="#">Gaming</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Team</a></li>
-              <li><a class="link-secondary" href="#">Locations</a></li>
-              <li><a class="link-secondary" href="#">Privacy</a></li>
-              <li><a class="link-secondary" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+ <div th:replace="layout :: footer"></div>
       
    <!-- Optional JavaScript -->
 <!-- Popper.js first, then Bootstrap JS -->

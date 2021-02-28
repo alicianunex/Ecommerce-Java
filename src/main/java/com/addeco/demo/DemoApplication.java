@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
 
 import com.addeco.demo.entity.Customer;
 import com.addeco.demo.entity.Manufacturer;
@@ -19,6 +21,7 @@ import com.addeco.demo.repository.ShopCartRepository;
 
 
 @SpringBootApplication
+//	@ComponentScan(basePackageClasses=ProductController.class)
 public class DemoApplication implements CommandLineRunner {
 
 	@Autowired
@@ -59,12 +62,15 @@ public class DemoApplication implements CommandLineRunner {
 		Product product6 = new Product("Iphone 8", "new versions with 1 ram", 7, 600.05,Ebay);
 		Product product7 = new Product("Iphone 9", "new versions with 8 ram", 3, 310.05,Ebay);
 		Product product8 = new Product("Iphone 6", "new versions with 6 ram", 22, 320.15,Ebay);
-		List<Product> products2 = Arrays.asList(product5, product6, product7, product8);
+		product5.setManufacturer(Ebay);
+		product6.setManufacturer(Ebay);
+		product7.setManufacturer(Amazon);
+		product8.setManufacturer(Ebay);
 		
-		Ebay.setProducts(products2);
-		
-		productRepository.saveAll(products2);
-
+		productRepository.save(product5);
+		productRepository.save(product6);
+		productRepository.save(product7);
+		productRepository.save(product8);
 	 
 		
         

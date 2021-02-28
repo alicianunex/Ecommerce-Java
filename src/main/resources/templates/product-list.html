@@ -54,7 +54,7 @@
 	        <div class="col text-center pt-5 mt-5">
 	        	<div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
 	        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-	        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" th:href="@{/products/{id}/product-edit.html}" role="button">Custom Yours</a>
+	        <!--  <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" th:href="@{/products/new}" role="button">Custom Yours</a> -->
 	    	</div>
 	    </div>
     </div>
@@ -80,8 +80,8 @@
 
 			<div class="col">
 
-				<a class="btn btn-success" th:href="@{/products/new}">Add a new product</a>
-				<a class="btn btn-danger" th:href="@{/products/delete}">Delete all products</a>
+				<a class="btn btn-success" th:href="@{/products/new}">Add a new product</a>	<!-- No primary or single public constructor found for interface org.springframework.ui.Model - and no default constructor found either -->
+				<a class="btn btn-danger" th:href="@{/products/delete}">Delete all products</a> 
 				
 				<table class="table table-dark table-striped mt-3">
 				
@@ -107,10 +107,10 @@
 					          	
 					          			<td>
 					          	<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${product.id})}">Show</a>
-								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${product.id})}">Edit</a>
-								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Delete</a>
+								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${product.id})}">Edit</a>	<!-- Sigue presentando fallos.  -->
+								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Delete</a>	
                                     
-					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addaddproduct(id=${product.id})}">buy it</a>
+					          	<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addaddproduct(id=${product.id})}">Buy it</a>	<!-- Type = Not found, status 404. No message available -->
 					          			</td>  		</tr>
 					</tbody>
 				</table>

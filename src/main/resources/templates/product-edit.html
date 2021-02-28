@@ -1,5 +1,8 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Error al cargar. Producto no se puede leer o getter es invalido. ¿El retorno de getter = parametro de setter? -->
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -60,7 +63,7 @@
         <div class="col text-center pt-5 mt-5">
          <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
         <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="product-list.html" role="button">Main Page</a>
+        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" th:href="@{/products}" role="button">Main Page</a>
     </div>
     </div>
     </div>
@@ -85,29 +88,29 @@
     
     	<h1>Campos del producto <span th:text="${product.id}"></span></h1>
     
-      <form th:action="@{/products}" th:object="${product}" method="POST">
+      <form th:action="@{/products}" th:object="${product}" method="POST" >	<!-- modelAttribute="product" -->
 
 					<input type="hidden" th:field="*{id}">
 					
 					
 					<div class="mb-3">
 						<label for="name" class="form-label">Product name</label>
-						 <input type="text" class="form-control" id="name" th:field="*{product.name}">
+						<input type="text" class="form-control" id="name" th:field="*{name}">
 					</div>
 					
 					<div class="mb-3">
 					  <label for="description" class="form-label">Product description</label>
-					  <textarea class="form-control" id="description" rows="3" th:field="*{product.description}"></textarea>
+					  <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
 					</div>
 					
 					<div class="mb-3">
 						<label for="quantity" class="form-label">Product quantity</label>
-						 <input type="number" class="form-control" id="quantity" th:field="*{product.quantity}">
+						<input type="number" class="form-control" id="quantity" th:field="*{quantity}">
 					</div>
 					
 					<div class="mb-3">
 						<label for="price" class="form-label">Product price</label>
-						 <input type="number" class="form-control" id="price" th:field="*{product.price}">
+						<input type="number" step="0.01" class="form-control" id="price" th:field="*{price}">
 					</div>
 					
 				

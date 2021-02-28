@@ -19,6 +19,7 @@ import javax.persistence.Table;
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -27,6 +28,7 @@ public class Product implements Serializable {
 	private String description;
 	private Integer quantity;
 	private Double price;
+	//	private Product product;
 
 	@ManyToOne
 	@JoinColumn(name = "id_manufacturer")
@@ -37,22 +39,7 @@ public class Product implements Serializable {
 	@ManyToMany(mappedBy="products")
 	private List<Customer> customers = new ArrayList<>();
 
-	
 
-	
-
-	public Product() {
-
-	}
-
-	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer) {
-		super();
-		this.name = name;
-		this.description = description;
-		this.quantity = quantity;
-		this.price = price;
-		this.manufacturer = manufacturer;
-	}
 
 	public Long getId() {
 		return id;
@@ -110,17 +97,34 @@ public class Product implements Serializable {
 		this.customers = customers;
 	}
 
+	
+	public Product() {
+
+	}
+	
+	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer) {
+		//	super();
+		this.name = name;
+		this.description = description;
+		this.quantity = quantity;
+		this.price = price;
+		this.manufacturer = manufacturer;
+	}
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
 				+ ", price=" + price + ", manufacturer=" + manufacturer + ", customers=" + customers + "]";
 	}
 
-	
+	/*
+	public Product getProduct() {
+		return product;
+	}
 
-	 
-	
-
-
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	*/
 
 }

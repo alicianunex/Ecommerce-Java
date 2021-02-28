@@ -30,22 +30,15 @@ public class ProductController {
 	ShopCartRepository shopcartRepository;
 	
 	
-			//CREATE/UPDATE
+			//CREATE
 			// Crea un producto nuevo
-			@GetMapping("/new")
-			public String createProduct(@ModelAttribute ("product") Model model) {
+			@GetMapping("/products/new")
+			public String newProduct(Model model) {
 				model.addAttribute("product", new Product());
-				// model.addAttribute("manufacturer", manufacturerRepository.findAll());
 				return "product-edit";
-			}
-			
-			
-			// Guarda el producto creado
-			@PostMapping
-			public String crearProducto(@ModelAttribute("product") Product product) {
-				productRepository.save(product);
-				return "redirect:/products";
-			}
+		
+				}
+	
 			
 			//RETRIEVE
 			// Nos carga el producto que hemos buscado, si existe. En caso contrario, nos dará un error
@@ -70,34 +63,41 @@ public class ProductController {
 				model.addAttribute("products", productRepository.findAll());
 				return "product-list";
 			}
-				
-				// Busca la ID del producto para editarlo. En caso contrario, nos dará un error.
-				@GetMapping("/products/{id}/edit")
-				public String editarProducto(@PathVariable Long id, Model model) {
-					if(id == null) 
-						return "redirect:/products";
-					
-					Optional<Product> productOpt = productRepository.findById(id);
-					if (productOpt.isPresent()) { 
-						model.addAttribute("product", productOpt.get());
-						return "product-edit";
-					} else {
-					model.addAttribute("error", "No existe el producto solicitado");
+			
+			// UPDATE
+			// Busca la ID del producto para editarlo. En caso contrario, nos dará un error.
+			@GetMapping("/products/{id}/edit")
+			public String editarProducto(@PathVariable Long id, Model model) {
+				if(id == null) {
 					return "redirect:/products";
 					}
-					
-				}
+				Optional<Product> productOpt = productRepository.findById(id);
+				if (productOpt.isPresent()) { 
+					model.addAttribute("product", productOpt.get());
+					return "product-edit";
+				} else {
+				model.addAttribute("error", "No existe el producto solicitado");
+				return "redirect:/products";
+				}		
+			}
+			
+			// Guarda el producto creado y/o editado
+			@PostMapping("/products")
+			public String crearProducto(@ModelAttribute("product") Product product) {
+				productRepository.save(product);
+				return "redirect:/products";
+			}	
 				
 				// DELETE
 				// Borra el producto que corresponda con la ID seleccionada
-				@GetMapping("/{id}/delete")
+				@GetMapping("/products/{id}/delete")
 				public String borrarProducto(@PathVariable Long id) {
 					productRepository.deleteById(id);
 					return "redirect:/products";
 				}
 				
 				// Borra todos los productos
-				@GetMapping("/delete/all")
+				@GetMapping("/products/delete")
 				public String borrarProductos() {
 					productRepository.deleteAll();
 					return "redirect:/products";

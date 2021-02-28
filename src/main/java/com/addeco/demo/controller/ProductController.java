@@ -92,7 +92,7 @@ ShopCartRepository shopcartrepo;
 	
 	
 	@GetMapping("/products/{id}/delete")
-	public String Product(@PathVariable Long id) {
+	public String deleteProduct(@PathVariable Long id) {
 		productrepo.deleteById(id);
 		return "redirect:/products";
 	}

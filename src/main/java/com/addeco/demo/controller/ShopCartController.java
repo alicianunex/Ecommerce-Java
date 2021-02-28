@@ -116,7 +116,7 @@ ProductRepository	productrepo;
     	  double totalPrice=0;
     	  for(Product product:shopcart.getProducts()) {
     		  if(product.getPrice()!=null)
-    			  totalPrice+=product.getPrice();
+    			  totalPrice+=product.pricequantity();
     		  
     	  }
     	  return totalPrice;

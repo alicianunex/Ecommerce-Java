@@ -77,10 +77,8 @@
 							<td th:utext="${product.price}"></td>
 						
 							<td>
-								<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${product.id})}">View</a>
-								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${product.id})}">Edit</a>
-								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Delete</a>
-								<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addproduct(id=${product.id})}">Buy</a>
+					<a class="btn btn-danger text-white" th:href="@{/shopcarts/{id}/deleteproduct(id=${product.id})}">delete shopcart</a>
+
 							</td>
 							
 						</tr>

@@ -10,24 +10,26 @@
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/movies.css">
+<link rel="stylesheet" >
 </head>
 <body>
 
 
 	<div class="container mt-5">
 		<h1>Iniciar sesión </h1>
+		
+		<div th:if="${errors}">Error</div>
 		<hr>
 		<div class="row">
 
 			<div class="col-8">
 
-				<form th:action="@{/login}" th:object="${customer}" method="POST">
-
+				<form th:action="@{/login}" th:object="${customer}" method="POST" >
+                      
 					<input type="hidden" th:field="*{id}">
 					
 					<div class="mb-3">
-						<label for="email" class="form-label">Email</label>
+						<label for="email" class="form-label">email</label>
 						 <input type="email" class="form-control" id="email" th:field="*{email}">
 					</div>
 					

@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.addeco.demo.entity.Customer;
 
 
+
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	Optional<Customer> findByEmailAndPassword(String email, String password);
+	
 }

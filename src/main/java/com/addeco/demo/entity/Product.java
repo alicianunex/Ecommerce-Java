@@ -33,6 +33,14 @@ public class Product implements Serializable {
 	private Manufacturer manufacturer;
 
 
+	
+	
+	
+	public double pricequantity() {
+		
+		return price*quantity;
+		
+	}
 
 	@ManyToMany(mappedBy="products")
 	private List<Customer> customers = new ArrayList<>();

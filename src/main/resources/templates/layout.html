@@ -17,7 +17,7 @@
 
     <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255,0.859);position: fixed;width: 100%;z-index:300;">
         <div class="container-fluid ml-5">
-          <a class="navbar-brand" href="#">Mobile Shop</a>
+          <a class="navbar-brand" th:href="@{/products}">Mobile Shop</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,9 +25,9 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
+            <!--   <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
                  <a class="nav-link" style="color: black;" th:href="@{/products}">PRODUCTS</a>
-              </li>
+              </li> -->
               <li class="nav-item mr-5 pr-5 pb-4 pt-4 pl-5">
                  <a class="nav-link" style="color: black;" th:href="@{/userproducts}">MyPRODUCTS</a>
               </li>

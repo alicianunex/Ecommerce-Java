@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,8 +24,11 @@ import javax.persistence.Table;
 public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	
 	@Id
 	@GeneratedValue
+	@Column(name="id")
 	private Long id;
 
 	private String name;
@@ -51,10 +54,9 @@ public class Customer implements Serializable {
 
 	
 	
-	public Customer(Long id, String name, String address, String email, String password, String phoneNumber,
+	public Customer( String name, String address, String email, String password, String phoneNumber,
 			String username, List<Product> products) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.email = email;

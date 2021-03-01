@@ -53,14 +53,19 @@ public class ManufacturerController {
 	@GetMapping("/manufacturers/new")
 	public String showForm(Model model) {
 		model.addAttribute("manufacturer", new Manufacturer());
-		//model.addAttribute("products", productrepo.findAllByManufacturerIdIsNull());
+		model.addAttribute("products", productrepo.findAllByManufacturerIdIsNull());
 
 		return "store-edit";
 	}
 	
 	@PostMapping("/manufacturers")
 	public String saveProduct(@ModelAttribute("manufacturer") Manufacturer manufacturer) {
-		System.out.println(manufacturer);
+	
+		
+		
+		for (Product product : manufacturer.getProducts()) 
+			product.setManufacturer(manufacturer);
+		
 		repository.save(manufacturer);
 		return "redirect:/manufacturers";
 	}
@@ -73,7 +78,7 @@ public class ManufacturerController {
 		Optional<Manufacturer> manOpt = repository.findById(id);
 		if (manOpt.isPresent()) {
 			model.addAttribute("manufacturer", manOpt.get());
-			//model.addAttribute("products", productrepo.findAllByManufacturerIdOrManufacturerIdIsNull(id));
+			model.addAttribute("products", productrepo.findAllByManufacturerIdOrManufacturerIdIsNull(id));
 			return "store-edit";
 		}
 		model.addAttribute("NOTIFICATION", "No existe el fabricante solicitado.");

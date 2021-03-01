@@ -60,11 +60,11 @@
 						<tr>
 							<th scope="col">ID</th>
 							
-							<th scope="col">Title</th>
+							
 							<th scope="col">name</th>
-							<th scope="col">quantity</th>
-							<th scope="col">price</th>
-							<th scope="col">photos</th>
+							<th scope="col">directions</th>
+							<th scope="col">cif</th>
+							
 							<th scope="col">actions</th>
 						</tr>
 					</thead>
@@ -72,9 +72,11 @@
 						<tr th:each="manufacturer: ${manufacturers}">
 							<th scope="row" th:utext="${manufacturer.id}"></th>
 							<td th:utext="${manufacturer.name}"></td>
-							<td th:utext="${manufacturer.cif}"></td>
+							
 							<td th:utext="${manufacturer.direction}"></td>
-					        
+							<td th:utext="${manufacturer.cif}"></td>
+					    
+						
 					          	
 					          			<td>
 					          			<a class="btn btn-primary text-white" th:href="@{/manufacturers/{id}/view(id=${manufacturer.id})}">Show</a>

@@ -33,19 +33,27 @@ CustomerRepository customerrepo;
 	
 	@GetMapping({"/login","/"})
 	public String login(Model model) {
-		model.addAttribute("customer", new Customer());
+		model.addAttribute("customer", new Customer());	
+		
 		return "login";
 	}
 	
 	
 	@PostMapping("/login")
-	public String login(@ModelAttribute("customer") Customer userForm, HttpSession session) {
+	public String login(@ModelAttribute("customer") Customer userForm, HttpSession session,Model model) {
 		System.out.println(userForm);
 		Optional<Customer> customerDB = customerrepo.findByEmailAndPassword(userForm.getEmail(), userForm.getPassword());
 		if (customerDB.isPresent()) {
 			session.setAttribute("customer", customerDB.get());
+		
+			return "redirect:/products";
+		}else {
+			
+			model.addAttribute("errors", "email doesnt found!! .");
+			System.out.println("isnt found");
+			return "redirect:/login";
 		}
-		return "redirect:/products";
+		
 	}
 	
 }

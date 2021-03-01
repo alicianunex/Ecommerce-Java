@@ -40,14 +40,14 @@
         </div>
 
     </section>
-    
+    <div th:if="${error}">Error</div>
+
 	<div class="container mt-5">
 		<h1>shop of <span class="red">smartiphones</span></h1>
 		<hr>
 		<h3>Shopcart items: <span th:utext="${shopcart_items}"></span></h3>
-		<div th:if="${error}">Error</div>
+		
 		<div class="row">
-
 			<div class="col">
 
 				<a class="btn btn-success" th:href="@{/products/new}">add product</a>

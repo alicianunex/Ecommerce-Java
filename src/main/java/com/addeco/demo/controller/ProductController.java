@@ -49,10 +49,12 @@ ShopCartRepository shopcartrepo;
 	}
 	
 	
+	
 	@GetMapping("/userproducts")
 	public String findUserProducts(Model model, HttpSession session) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		if(customer != null)
+		if(customer == null)
+			return "redirect:/login";
 			model.addAttribute("customer", customer);
 		model.addAttribute("products", productrepo.findAllByCustomersId(customer.getId()));
 		return "product-list";
@@ -74,7 +76,7 @@ ShopCartRepository shopcartrepo;
 	@GetMapping("/products/new")
 	public String newProduct(Model model) {
 		model.addAttribute("product", new Product());
-		//model.addAttribute("manufacturers", manufacturerrep.findAll());
+	//	model.addAttribute("manufacturers", manufacturerrep.findAll());
 		return "product-edit";
 		
 	}
@@ -88,7 +90,7 @@ ShopCartRepository shopcartrepo;
 		Optional<Product> productOpt = productrepo.findById(id);
 		if (productOpt.isPresent()) { 
 			model.addAttribute("product", productOpt.get());
-		//model.addAttribute("manufacturers", manufacturerrep.findAll());
+	//	model.addAttribute("manufacturers", manufacturerrep.findAll());
 			
 			return "product-edit";
 		}

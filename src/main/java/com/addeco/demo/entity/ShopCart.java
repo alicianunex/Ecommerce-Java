@@ -25,14 +25,14 @@ public class ShopCart implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@GeneratedValue
+	@Column(name="id")
 	private Long id;
 
 	
 
 	@ManyToMany
-	@JoinTable(name = "product_shopcart",
+	@JoinTable(name = "shopcart_product",
 	joinColumns = @JoinColumn(name = "shopcart_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
 	private List<Product> products = new ArrayList<>();

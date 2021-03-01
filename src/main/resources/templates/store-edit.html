@@ -23,24 +23,14 @@
 
 
    
-    <section class="home">
-    <div class="container">
-    <div class="row">
-        <div class="col text-center pt-5 mt-5">
-         <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
-        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Main.html" role="button">Main Page</a>
-    </div>
-    </div>
-    </div>
-    </section>
+   <br>   <br>   <br>
 
 
     <section class="image">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <img src="img/macbook.png"  class="img-fluid img1" id="img1" >
+                    <img src="https://wtop.com/wp-content/uploads/2020/03/4STAR.png"  class="img-fluid img1" id="img1" >
                 </div>
             </div>
         </div>
@@ -51,9 +41,12 @@
  
 
     
- <div class="container" >
-    
-    	<h1>Edit  Smartphone  <span th:text="${manufacturer.id}"></span></h1>
+<div class="container mt-5">
+		<h1>edit the manufacture  <span th:text="${manufacturer.id}"></span></h1>
+		<hr>
+		<div class="row">
+
+			<div class="col-8">
     
       <form th:action="@{/manufacturers}" th:object="${manufacturer}" method="POST">
 
@@ -61,22 +54,22 @@
 					
 					
 					<div class="mb-3">
-						<label for="title" class="form-label">name</label>
+						<label for="name" class="form-label">name</label>
 						 <input type="text" class="form-control" id="name" th:field="*{name}">
 					</div>
 					
 					<div class="mb-3">
-					  <label for="sinopsis" class="form-label">direction</label>
+					  <label for="direction" class="form-label">direction</label>
 					  <textarea class="form-control" id="description" rows="3" th:field="*{direction}"></textarea>
 					</div>
 					
 					<div class="mb-3">
-						<label for="duration" class="form-label">numEmployees</label>
+						<label for="numEmployees" class="form-label">numEmployees</label>
 						 <input type="number" class="form-control" id="quantity" th:field="*{numEmployees}">
 					</div>
 					
 					<div class="mb-3">
-						<label for="duration" class="form-label">cif</label>
+						<label for="cif" class="form-label">cif</label>
 						 <input type="number" class="form-control" id="cif" th:field="*{cif}">
 					</div>
 					
@@ -92,7 +85,7 @@
 
 				</form>
 
-       
+       </div>
 
 
           <br>
@@ -117,7 +110,7 @@
 
 
 
-
+</div>
 
 
 

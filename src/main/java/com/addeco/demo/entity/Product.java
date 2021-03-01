@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,8 @@ import javax.persistence.Table;
 
 
 
+
+
 @Entity
 @Table(name = "product")
 public class Product implements Serializable {
@@ -21,6 +24,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
+	@Column(name="id")
 	private Long id;
 
 	private String name;
@@ -32,8 +36,11 @@ public class Product implements Serializable {
 	@JoinColumn(name = "id_manufacturer")
 	private Manufacturer manufacturer;
 
-
 	
+	
+	@ManyToMany(mappedBy="products")
+	private List<Customer> customers = new ArrayList<>();
+
 	
 	
 	public double pricequantity() {
@@ -42,9 +49,7 @@ public class Product implements Serializable {
 		
 	}
 
-	@ManyToMany(mappedBy="products")
-	private List<Customer> customers = new ArrayList<>();
-
+	
 	
 
 	
@@ -64,13 +69,13 @@ public class Product implements Serializable {
 
 	}
 
-	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer) {
+	public Product(String name, String description, Integer quantity, Double price) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.quantity = quantity;
 		this.price = price;
-		this.manufacturer = manufacturer;
+		
 	}
 
 	public Long getId() {

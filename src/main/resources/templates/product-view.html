@@ -82,10 +82,9 @@
 		</div>
 		<div class="row">
 			<div class="mt-5">
-				<a class="btn btn-info text-white" th:href="@{/movies}">Volver</a>
+				<a class="btn btn-info text-white" th:href="@{/products}">Volver</a>
 			
-				<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${product.id})}">Editar</a>
-				<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Eliminar</a>
+				
 			</div>
 		</div>
 
@@ -104,30 +103,7 @@
 
 
 
-    </section>
-
-   <a class="btn  btn-show  " style="margin-left: 15px;margin-top: 5px;" id="mainButton1" role="button" href="#">Main Page</a>
-   <a class="btn  btn-show pr-5  float-right" style="margin-right: 15px;margin-top: 5px;" id="mainButton2" role="button" href="#">Edit Page</a>
-
-<script>
-
-   $(function () {
-
-    // Cuando hacemos click en un botón nos vamos a otra página
-    $("#mainButton1").click(function () {
-        window.location.href = "Main.html";
-    });
-
-});
-
-
-// Cuando hacemos click en un botón nos vamos a otra página
-$("#mainButton2").click(function () {
-    window.location.href = "Edit.html";
-});
-
-
-</script>
+  
 
 
 
@@ -138,24 +114,10 @@ $("#mainButton2").click(function () {
 
 
 
-    <footer class="footer">
-        <div class="container mt-2 p-2" style="color: white;">
-            <div class="row">
-                <div class="col pt-3 ">
-                    <h4>Who Are We</h4><hr>
-                    <p>We're a Company for technology <br> Happy to help you to find best device whatever it is.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container" style="color: white;margin-top: 15px;">
-        <div class="row">
-            <div class="col text-center pt-5">
-                © Copyright 2021 : <a href="mailto:aymanayman@gmail.com" style="color: white;" rule="button">  Ayman Abusafia</a>
-            </div>
-        </div>
-        </div>
-    </footer>
+
+
+
+ <div th:replace="layout :: footer"></div>
        <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

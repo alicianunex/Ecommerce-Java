@@ -89,6 +89,7 @@ ProductRepository	productrepo;
     	  session.setAttribute("shopcart",shopcart);
     	  model.addAttribute("totalPrice",calculateTotalPrice(shopcart));
     	  model.addAttribute("shopcart_items",shopcart.getProducts().size());
+          model.addAttribute("shopcart", shopcart);
     	  model.addAttribute("products",productrepo.findAll());
     	  return "shopcart";
     	  

@@ -68,20 +68,20 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="smartiphone: ${products}">
-							<th scope="row" th:utext="${smartiphone.id}"></th>
-							<td th:utext="${smartiphone.name}"></td>
-							<td th:utext="${smartiphone.description}"></td>
-							<td th:utext="${smartiphone.quantity}"></td>
-					          	<td th:utext="${smartiphone.price}"></td>
+						<tr th:each="product: ${products}">
+							<th scope="row" th:utext="${product.id}"></th>
+							<td th:utext="${product.name}"></td>
+							<td th:utext="${product.description}"></td>
+							<td th:utext="${product.quantity}"></td>
+					          	<td th:utext="${product.price}"></td>
 					          	<td colspan ='1'><img src="https://fdn.gsmarena.com/imgroot/news/20/11/iphone-12-pro-bom/-1200w5/gsmarena_004.jpg" alt="" border='3' height='100' width='100' /></td>
 					          	
 					          			<td>
-					          			<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${smartiphone.id})}">Show</a>
-								<a class="btn btn-success text-white" th:href="@{/{id}/edit(id=${smartiphone.id})}">Edit</a>
-								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${smartiphone.id})}">Delete</a>
-                                    
-					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addproduct(id=${smartiphone.id})}">buy it</a>
+					          			<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${product.id})}">Show</a>
+								<a class="btn btn-success text-white" th:href="@{/{id}/edit(id=${product.id})}">Edit</a>
+								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Delete</a>
+                                                                                             
+					          				<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addproduct(id=${product.id})}">buy it</a>
 					          			</td>  		</tr>
 					</tbody>
 				</table>

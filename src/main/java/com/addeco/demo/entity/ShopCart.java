@@ -35,14 +35,26 @@ public class ShopCart implements Serializable {
 	@JoinTable(name = "product_shopcart",
 	joinColumns = @JoinColumn(name = "shopcart_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-	private List<Product> product = new ArrayList<>();
+	private List<Product> products = new ArrayList<>();
 
 	@ManyToOne
 	@JoinColumn(name="customer_id")
-	private Customer customers;
+	private Customer customer;
 
 	
 	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+
+
 	public ShopCart() {
 		
 	}
@@ -61,33 +73,25 @@ public class ShopCart implements Serializable {
 
 
 
-	public List<Product> getProduct() {
-		return product;
-	}
 
-
-
-	public void setProduct(List<Product> product) {
-		this.product = product;
-	}
 
 
 
 	public Customer getCustomers() {
-		return customers;
+		return customer;
 	}
 
 
 
-	public void setCustomers(Customer customers) {
-		this.customers = customers;
+	public void setCustomers(Customer customer) {
+		this.customer = customer;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "ShopCart [id=" + id + ", product=" + product + ", customers=" + customers + "]";
+		return "ShopCart [id=" + id + ", products=" + products + ", customer=" + customer + "]";
 	}
 	
 	

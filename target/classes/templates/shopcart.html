@@ -19,13 +19,13 @@
 
     <section class="home">
     <div class="container">
-	    <div class="row">
-	        <div class="col text-center pt-5 mt-5">
-	        	<div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
-	        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
-	        <!--  <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" th:href="@{/products/new}" role="button">Custom Yours</a> -->
-	    	</div>
-	    </div>
+    <div class="row">
+        <div class="col text-center pt-5 mt-5">
+         <div style="font-size: 80px; color: white;">Ecommerce Mobile</div>
+        <h4 style="color: white;" class="mt-5">Buy your own custom mobile phone, tablet, TV screen or laptop</h4>
+        <a class="btn btn-success btn1 mt-5 mb-5 " id="btn1" href="Edit.html" role="button">Custom Yours</a>
+    </div>
+    </div>
     </div>
     </section>
 
@@ -40,52 +40,50 @@
         </div>
 
     </section>
-    
+
+
 	<div class="container mt-5">
-		<h1>shop of <span class="red">smartiphones</span></h1>
+		<h1>Basket of <span class="red">products</span></h1>
 		<hr>
 		<h3>Shopcart items: <span th:utext="${shopcart_items}"></span></h3>
+		<h3>Total price: <span th:utext="${totalPrice}"></span></h3>
 		<div th:if="${error}">Error</div>
 		<div class="row">
 
 			<div class="col">
-
-				<a class="btn btn-success" th:href="@{/products/new}">Add a new product</a>	<!-- No primary or single public constructor found for interface org.springframework.ui.Model - and no default constructor found either -->
-				<a class="btn btn-danger" th:href="@{/products/delete}">Delete all products</a> 
+                  <a class="btn btn-success" th:href="@{/shopcarts/checkout}">Finalizar compra</a>
+				
 				
 				<table class="table table-dark table-striped mt-3">
 				
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
+							<th scope="col">name</th>
+							<th scope="col">description</th>
+							<th scope="col">quantity</th>
+							<th scope="col">price</th>
 							
-							<th scope="col">Product name</th>
-							<th scope="col">Image</th>
-							<th scope="col">Description</th>
-							<th scope="col">Manufacturer</th>
-							<th scope="col">Quantity</th>
-							<th scope="col">Price</th>
 							<th scope="col">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="product: ${products}">
+		
+						<tr th:each="product: ${shopcart.products}">
 							<th scope="row" th:utext="${product.id}"></th>
 							<td th:utext="${product.name}"></td>
-							<td> <img th:src="@{${product.productImagePath}}"></td>
 							<td th:utext="${product.description}"></td>
-							<td th:utext="${product.manufacturer}"></td>
 							<td th:utext="${product.quantity}"></td>
-					        <td th:utext="${product.price}"></td>
-					          	
-					          	
-					          			<td>
-					          	<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${product.id})}">View product</a>
-								<a class="btn btn-success text-white" th:href="@{/products/{id}/edit(id=${product.id})}">Edit product</a>	<!-- Sigue presentando fallos.  -->
-								<a class="btn btn-danger text-white" th:href="@{/products/{id}/delete(id=${product.id})}">Delete product</a>	
-                                    
-					          	<a class="btn btn-warning text-white" th:href="@{/shopcarts/{id}/addproduct(id=${product.id})}">Buy it</a>	<!-- Type = Not found, status 404. No message available -->
-					          			</td>  		</tr>
+							<td th:utext="${product.price}"></td>
+						
+							<td>
+								<a class="btn btn-primary text-white" th:href="@{/products/{id}/view(id=${product.id})}">View product</a>
+								
+								<a class="btn btn-danger text-white" th:href="@{/shopcarts/{id}/deleteproduct(id=${product.id})}">Remove from shopcart</a>
+								
+							</td>
+							
+						</tr>
 					</tbody>
 				</table>
 
@@ -99,7 +97,7 @@
 
 	</div>
 
-
+<div th:replace="layout :: footer"></div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

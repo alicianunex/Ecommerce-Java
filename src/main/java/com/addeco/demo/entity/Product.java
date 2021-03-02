@@ -4,13 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 
@@ -19,7 +22,6 @@ import javax.persistence.Table;
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -28,7 +30,10 @@ public class Product implements Serializable {
 	private String description;
 	private Integer quantity;
 	private Double price;
-	//	private Product product;
+	
+	@Column(length = 45, nullable = true)
+	private String logo;
+	
 
 	@ManyToOne
 	@JoinColumn(name = "id_manufacturer")
@@ -39,7 +44,36 @@ public class Product implements Serializable {
 	@ManyToMany(mappedBy="products")
 	private List<Customer> customers = new ArrayList<>();
 
+	
 
+	
+
+	public Product(String name, String description, Manufacturer manufacturer, Integer quantity, Double price,
+			List<Customer> customers) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.manufacturer = manufacturer;
+		this.quantity = quantity;
+		this.price = price;
+		this.customers = customers;
+		
+	}
+
+	public Product() {
+
+	}
+
+	
+	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.quantity = quantity;
+		this.price = price;
+		this.manufacturer = manufacturer;
+	}
+	
 
 	public Long getId() {
 		return id;
@@ -96,35 +130,29 @@ public class Product implements Serializable {
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
 	}
-
 	
-	public Product() {
-
-	}
-	
-	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer) {
-		//	super();
-		this.name = name;
-		this.description = description;
-		this.quantity = quantity;
-		this.price = price;
-		this.manufacturer = manufacturer;
-	}
 	
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
-				+ ", price=" + price + ", manufacturer=" + manufacturer + ", customers=" + customers + "]";
+		return "Product [id: " + id + ", name: " + name + ", description: " + description + ", manufacturer: " + manufacturer.getName() +
+				", quantity: " + quantity + ", price: " + price + ", customers: " + customers + "]";
+	}
+	
+
+	public String getLogo() {
+		return logo;
 	}
 
-	/*
-	public Product getProduct() {
-		return product;
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	@Transient
+	public String getProductImagePath() {
+		if (logo == null || id == null) return null;
+		
+		return "/product-logos/" + id + "/" + logo;
 	}
-	*/
+	
 
 }

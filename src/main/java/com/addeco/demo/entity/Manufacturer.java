@@ -114,14 +114,20 @@ public class Manufacturer implements Serializable {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
-
+	
+	/*
+	// Comentado para eliminar bucle infinito en el llamamiento entre product y manufacturer.
 	@Override
 	public String toString() {
-		return "Manufacturer [id=" + id + ", cif=" + cif + ", name=" + name + ", direction=" + direction
-				+ ", numEmployees=" + numEmployees + ", products=" + products + "]";
+		return "Manufacturer [id: " + id + ", cif: " + cif + ", name: " + name + ", direction: "
+				 + direction + ", numEmployees: " + numEmployees + "products: " + products + "]";
 	}
+	*/
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 	
 }

@@ -23,7 +23,10 @@ public class LoginController {
 	@Autowired
 CustomerRepository customerrepo;
 	
-	@GetMapping("/login")
+	
+
+	
+	@GetMapping({"/login","/"})
 	public String login(Model model) {
 		model.addAttribute("customer", new Customer());
 		return "login";

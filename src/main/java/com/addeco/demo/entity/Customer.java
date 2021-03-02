@@ -41,7 +41,7 @@ public class Customer implements Serializable {
 	inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
 	private List<Product> products = new ArrayList<>();
 
-	@OneToMany(mappedBy="customers")
+	@OneToMany(mappedBy="customer")
 	private List<ShopCart> shopcarts = new ArrayList<>();
 
 	

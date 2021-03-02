@@ -1,29 +1,50 @@
 @charset "UTF-8";
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
+.cancel {
+    text-decoration: none
 }
 
-.price {
-  color: grey;
-  font-size: 22px;
+.bg-pay {
+    background-color: #eee;
+    border-radius: 2px
 }
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
+.com-color {
+    color: #8f37aa !important
 }
 
-.card button:hover {
-  opacity: 0.7;
+.radio {
+    cursor: pointer
+}
+
+label.radio input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none
+}
+
+label.radio div {
+    padding: 7px 14px;
+    border: 2px solid #8f37aa;
+    display: inline-block;
+    color: #8f37aa;
+    border-radius: 3px;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+label.radio input:checked+div {
+    border-color: #8f37aa;
+    background-color: #8f37aa;
+    color: #fff
+}
+
+.fw-500 {
+    font-weight: 400
+}
+
+.lh-16 {
+    line-height: 16px
 }

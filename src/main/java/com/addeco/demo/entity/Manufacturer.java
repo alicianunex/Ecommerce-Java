@@ -125,8 +125,11 @@ public class Manufacturer implements Serializable {
 	@Override
 	public String toString() {
 		return "Manufacturer [id=" + id + ", cif=" + cif + ", name=" + name + ", direction=" + direction
-				+ ", numEmployees=" + numEmployees + ", products=" + products + "]";
+				+ ", numEmployees=" + numEmployees + "]";
 	}
+
+
+	
 
 
 	

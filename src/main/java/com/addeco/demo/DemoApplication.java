@@ -48,10 +48,10 @@ public class DemoApplication implements CommandLineRunner {
 		productrepositoy.saveAll(products);
 		Customer customer1 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem",products);
 		customrepository.save(customer1);
-		ShopCart shopcart1=new ShopCart();
-		shopcart1.setProducts(Arrays.asList(product1, product2));
-		shopcart1.setCustomers(customer1);
-		shopcartrepository.save(shopcart1);
+//		ShopCart shopcart1=new ShopCart();
+//		shopcart1.setProducts(Arrays.asList(product1, product2));
+//		shopcart1.setCustomers(customer1);
+//		shopcartrepository.save(shopcart1);
 		
 //		Customer customer1 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem");
 //		Customer customer2 = new Customer("ayman", "cl rio escudo", "a@aa", "1234", "633258741", "ayman");

@@ -2,6 +2,8 @@ package com.addeco.demo.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,10 @@ public class CustomerController {
 	private CustomerRepository customerrepo;
 
   @GetMapping("/customers")
-  public String findCustomers(Model model){
+  public String findCustomers(Model model, HttpSession session){
+	  Customer customer = (Customer) session.getAttribute("customer");
+		if(customer != null)
+			model.addAttribute("customer", customer);
     model.addAttribute("customers", customerrepo.findAll());
     return "customer-list";
   }
@@ -36,13 +41,13 @@ public class CustomerController {
 	@GetMapping("/customers/{id}/view")
 	public String viewCustomer(@PathVariable Long id, Model model) {
 		Optional<Customer> customerOpt = customerrepo.findById(id);
-		if (!customerOpt.isPresent()) {
-			model.addAttribute("error", "ID product not found.");
-			model.addAttribute("customers", customerrepo.findAll());
-			return "customer-list";
-		}
+		
+		  if (!customerOpt.isPresent()) { model.addAttribute("error",
+		  "ID product not found."); model.addAttribute("customers",
+		  customerrepo.findAll()); return "customer-list"; }
+		 
 		model.addAttribute("customer", customerOpt.get());
-		return "customer-view";
+		return "customer-viewtest";
 	}
 	
 	@GetMapping("/customers/new")

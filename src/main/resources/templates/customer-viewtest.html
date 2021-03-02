@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <!-- basic -->
+<meta charset="UTF-8">
+ <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- mobile metas -->
@@ -33,15 +33,16 @@
     <!--[if lt IE 9]>
       <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+
+  
 </head>
-<!-- body -->
 
 <body>
 
-
-   <div th:replace="layout :: navbar"></div>
-
- <div class="slider_section">
+  <div th:replace="layout :: navbar"></div>
+  
+<div class="slider_section">
         <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -108,13 +109,6 @@
       
       
       
-      
-      
-      
-      
-      
-      
-      
 
 
 
@@ -123,65 +117,64 @@
 
 
 
-	<div class="container mt-5">
-		<h1>shop of <span class="red">smartiphones</span></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="container mt-5">
+		<h1>show  customer</h1>
 		<hr>
-		<h3>Shopcart items: <span th:utext="${shopcart_items}"></span></h3>
-		
 		<div class="row">
-			<div class="col">
 
-				<a class="btn btn-success" th:href="@{/products/new}">add product</a>
-				<a class="btn btn-danger" th:href="@{/products/delete}">delete product</a>
-				
-				<table style="border-collapse: collapse;width: 100%; border: 1px solid #ddd; background-color: silver; ">
-				
-					<thead>
-						<tr>
-						
-						<th scope="col"></th>
-						<th scope="col"></th>
-							<th style=" text-align: left; padding: 16px;" scope="col">ID</th>
-							  
-							<th style=" padding: 16px;" scope="col">Title</th>
-							<th style="  text-align: left; padding: 20px;" scope="col">description</th>
-							<th style=" padding: 16px;" scope="col">quantity</th>
-							<th style=" padding: 16px;" scope="col">price</th>
-							<th style=" padding: 16px;" scope="col">photos</th>
-							<th style=" padding: 16px;" scope="col"></th>
-							<th style=" padding: 16px;" scope="col"></th>
-							<th style=" padding: 16px;" scope="col">actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="product: ${products}">
-							<td colspan ='1'><img style="height: 250px; width: 150px" src="img/product-thumb-1.jpg" alt="" border='0'  /></td>
-					          <td colspan ='1'><img style="height: 250px; width: 150px" src="img/product-2.jpg" alt="" border='0' height='300' width='200' /></td>
-							<th scope="row" th:utext="${product.id}"></th>
-							<td  th:utext="${product.name}"></td>
-							<td th:utext="${product.description}"></td>
-							<td th:utext="${product.quantity}"></td>
-					          	<td th:utext="${product.price}"></td>
-					          	<td colspan ='1'><img style="height: 250px; width: 150px"  src="img/product-4.jpg" alt="" border='0' height='200' width='200' /></td>
-					          <td colspan ='1'><img style="height: 250px; width: 150px"  src="img/product-1.jpg" alt="" border='0'height='200' width='200' /></td>
-					          	<td></td>
-					          	
-					          			<td>
-					          			<a class="btn btn-primary btn-sm btn-block" th:href="@{/products/{id}/view(id=${product.id})}">Show</a>
-								<a class="btn btn-primary btn-sm btn-block" th:href="@{/{id}/edit(id=${product.id})}">Edit</a>
-								<a class="btn btn-primary btn-sm btn-block" th:href="@{/products/{id}/delete(id=${product.id})}">Delete</a>
-                                                                                             
-					          				<a class="btn btn-primary btn-lg btn-block" th:href="@{/shopcarts/{id}/addproduct(id=${product.id})}">buy </a>
-					          			</td>  		</tr>
-					</tbody>
-				</table>
+			<div class="col-4">
 
-
+				<p>
+					<b>ID:</b> <span th:text="${customer.id}"></span>
+				</p>
+				<p>
+					<b>name:</b> <span th:text="${customer.name}"></span>
+				</p>
+				<p>
+					<b>address:</b> <span th:text="${customer.address}"></span>
+				</p>
+				<p>
+					<b>email:</b> <span th:text="${customer.email}"></span>
+				</p>
+				<p>
+					<b>phoneNumber:</b> <span th:text="${customer.phoneNumber}"></span>
+				</p>
+                       <p>
+					<b>username:</b> <span th:text="${customer.username}"></span>
+				</p>
 
 			</div>
+		
 
 		</div>
-
+		<div class="row">
+			<div class="mt-5">
+				<a class="btn btn-info text-white" th:href="@{/customers}">Volver</a>
+			
+				
+			</div>
+		</div>
 
 
 	</div>
@@ -196,9 +189,11 @@
 
 
 
-<div th:replace="layout :: footer"></div>
 
-	 <!-- end footer -->
+
+
+<div th:replace="layout :: footer"></div>
+  <!-- end footer -->
     <!-- Javascript files-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>

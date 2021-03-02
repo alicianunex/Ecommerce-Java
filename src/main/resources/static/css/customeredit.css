@@ -7,7 +7,7 @@ body {
 .contact-form {
   padding: 50px;
   margin: 30px auto;
-  background: rgb(161, 40, 35);
+  background: rgb(156, 45, 41);
 }
 .contact-form h1 {
   font-size: 42px;
@@ -27,8 +27,8 @@ body {
   border-color: #fffdfd;
 }
 .contact-form .form-control:focus {
-  border-color: #d81212;
-  box-shadow: 0 0 8px #dc1010;
+  border-color: #070303;
+  box-shadow: 0 0 8px #000000;
 }
 .contact-form .btn-primary,
 .contact-form .btn-primary:active {

@@ -44,7 +44,9 @@ public class DemoApplication implements CommandLineRunner {
 		Product product1 = new Product("Iphone 12", "new versions with 8 ram", 3, 500.05);
 		Product product2 = new Product("Iphone 11", "new versions with 6 ram", 2, 400.0,Amazon);
 		
+
 		List<Product> products = Arrays.asList(product1, product2);
+		Amazon.setProducts(products);
 		productrepositoy.saveAll(products);
 		Customer customer1 = new Customer("ayman", "cl rio escudo", "a@a", "1234", "633258741", "aymansalem",products);
 		customrepository.save(customer1);

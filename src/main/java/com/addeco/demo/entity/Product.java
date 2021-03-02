@@ -134,11 +134,18 @@ public class Product implements Serializable {
 		this.customers = customers;
 	}
 
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
-				+ ", price=" + price + ", manufacturer=" + manufacturer + ", customers=" + customers + "]";
+				+ ", price=" + price + "]";
 	}
+
+	
 
 	
 

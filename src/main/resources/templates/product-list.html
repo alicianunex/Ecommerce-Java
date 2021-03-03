@@ -124,7 +124,7 @@
 
 
 	<div class="container mt-5">
-		<h1>shop of <span class="red">smartiphones</span></h1>
+		<h1 class="red">shop of  smartiphones</h1>
 		<hr>
 		<h3>Shopcart items: <span th:utext="${shopcart_items}"></span></h3>
 		
@@ -134,7 +134,7 @@
 				<a class="btn btn-success m-2 pb-2 " th:href="@{/products/new}">add product</a>
 				
 				
-				<table class="table table-dark"  style="width: 100%"; >
+				<table class="table table-striped"  style="width: 100%"; >
 				
 					<thead>
 						<tr>
@@ -147,30 +147,31 @@
 							<th style="  text-align: left; padding: 0px;" scope="col">description</th>
 							<th style=" padding: 0px;" scope="col">quantity</th>
 							<th style=" padding: 0px;" scope="col">price</th>
-							<th style=" padding: 0px;" scope="col">photos</th>
-							<th style=" padding: 0px;" scope="col"></th>
+							<!-- <th style=" padding: 0px;" scope="col">photos</th>
+							<th style=" padding: 0px;" scope="col"></th> -->
 							<th style=" padding: 0px;" scope="col"></th>
 							<th style=" padding: 0px;" scope="col">actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="product: ${products}">
+						<tr th:each="product: ${products}" >
 							<td colspan ='1'><img style="height: 200px; width: 100px" src="https://m.media-amazon.com/images/I/71XXJC7V8tL._AC_SX180_SY120_QL70_.jpg" alt="" border='0'  /></td>
 					          <td colspan ='1'><img style="height: 200px; width: 100px" src="https://images-na.ssl-images-amazon.com/images/I/81BwcI%2Bj7yL._AC_SL1500_.jpg" alt="" border='0' height='300' width='200' /></td>
 							<th scope="row" th:utext="${product.id}"></th>
-							<td  th:utext="${product.name}"></td>
-							<td th:utext="${product.description}"></td>
-							<td th:utext="${product.quantity}"></td>
-					          	<td th:utext="${product.price}"></td>
-					          	<td colspan ='1'><img style="height: 200px; width: 100px"  src="https://images-na.ssl-images-amazon.com/images/I/71DxMjPkZiL._AC_SL1500_.jpg" alt="" border='0' height='200' width='200' /></td>
-					          <td colspan ='1'><img style="height: 200px; width: 100px"  src="https://images-na.ssl-images-amazon.com/images/I/71DjxIGy0ZL._AC_SL1500_.jpg" alt="" border='0'height='200' width='200' /></td>
+							<td style="font-weight: bold;" th:utext="${product.name}"></td>
+							<td style="font-weight: bold;" th:utext="${product.description}"></td>
+							<td style="font-weight: bold;" th:utext="${product.quantity}"></td>
+					          	<td style="font-weight: bold;" th:utext="${product.price}"></td>
+					          	
+					          	<!-- <td colspan ='1'><img style="height: 200px; width: 100px"  src="https://images-na.ssl-images-amazon.com/images/I/71DxMjPkZiL._AC_SL1500_.jpg" alt="" border='0' height='200' width='200' /></td>
+					          <td colspan ='1'><img style="height: 200px; width: 100px"  src="https://images-na.ssl-images-amazon.com/images/I/71DjxIGy0ZL._AC_SL1500_.jpg" alt="" border='0'height='200' width='200' /></td> -->
 					          	<td></td>
 					          	
 					          			<td>
 					          			<a class="btn btn-primary btn-sm btn-block" th:href="@{/products/{id}/view(id=${product.id})}">Show</a>
 								<a class="btn btn-primary btn-sm btn-block" th:href="@{/{id}/edit(id=${product.id})}">Edit</a>
                                                                                              
-					          				<a class="btn btn-primary btn-lg btn-block" th:href="@{/shopcarts/{id}/addproduct(id=${product.id})}">buy </a>
+					          				<a class="btn btn-success btn-lg btn-block" th:href="@{/shopcarts/{id}/addproduct(id=${product.id})}">buy </a>
 					          				
 					          				
 					          				

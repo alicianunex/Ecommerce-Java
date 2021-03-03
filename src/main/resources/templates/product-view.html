@@ -33,14 +33,24 @@
     <!--[if lt IE 9]>
       <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+<!--  STYLE -->
+	<style>
+    	body{
+    		color: #FFFFFF;
+    		background-image: url(https://www.wallpapertip.com/wmimgs/9-96009_black-and-red-design.jpg);
+    		font-family: "Roboto", sans-serif;
+    	}
+    </style>
+
+
 </head>
 <!-- body -->
 
 <body>
 
 
-   <div th:replace="layout :: navbar"></div>
-
+   
+<!-- 
  <div class="slider_section">
         <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <div class="carousel-inner">
@@ -104,7 +114,7 @@
             </a>
         </div>
          </div>
-    
+     -->
       
       
       
@@ -122,16 +132,16 @@
 
 				<p>
 					<b>ID:</b> <span th:text="${product.id}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>Title:</b> <span th:text="${product.name}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>desciption:</b> <span th:text="${product.description}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>quantity:</b> <span th:text="${product.quantity}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>Price:</b> <span th:text="${product.price}"></span>
 				</p>
@@ -154,12 +164,7 @@
               
               
               
-            </div>
-          </div>
-
-      
-
-    </div>
+           
                        
 
 
@@ -178,7 +183,7 @@
 
 
 
-<div th:replace="layout :: footer"></div>
+<!-- <div th:replace="layout :: footer" style="z-index: 5000;"></div> -->
 
 	 <!-- end footer -->
     <!-- Javascript files-->

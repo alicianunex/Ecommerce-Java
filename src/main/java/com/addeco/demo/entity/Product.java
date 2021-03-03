@@ -31,6 +31,7 @@ public class Product implements Serializable {
 	private String description;
 	private Integer quantity;
 	private Double price;
+	private String urlImg;
 
 	@ManyToOne
 	@JoinColumn(name = "id_manufacturer")
@@ -54,6 +55,24 @@ public class Product implements Serializable {
 
 	
 
+	public String getUrlImg() {
+		return urlImg;
+	}
+
+
+
+
+
+
+	public void setUrlImg(String urlImg) {
+		this.urlImg = urlImg;
+	}
+
+
+
+
+
+
 	public Product(String name, String description, Integer quantity, Double price, Manufacturer manufacturer
 			) {
 		super();
@@ -69,14 +88,21 @@ public class Product implements Serializable {
 
 	}
 
-	public Product(String name, String description, Integer quantity, Double price) {
+
+
+	public Product(String name, String description, Integer quantity, Double price, String urlImg) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.quantity = quantity;
 		this.price = price;
-		
+		this.urlImg = urlImg;
 	}
+
+
+
+
+
 
 	public Long getId() {
 		return id;
@@ -142,8 +168,14 @@ public class Product implements Serializable {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
-				+ ", price=" + price + "]";
+				+ ", price=" + price + ", ]";
 	}
+
+
+
+
+
+
 
 	
 

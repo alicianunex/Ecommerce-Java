@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class test {
+public class aboutus {
 
 	
-	  @GetMapping("/test")
+	  @GetMapping("/about")
 	  public String findCustomers(Model model, HttpSession session){
 	
-	    return "index";
+	    return "aboutus";
 	  }
 }

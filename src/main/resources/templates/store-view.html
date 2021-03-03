@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,12 +11,19 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+    	body{
+    		color: #FFFFFF;
+    		background-image: url(https://www.wallpapertip.com/wmimgs/9-96009_black-and-red-design.jpg);
+    		font-family: "Roboto", sans-serif;
+    	}
+    </style>
     <title>Show Store</title>
   </head>
   <body>
 
 
-    <div th:replace="layout :: navbar"></div>
+    
 
 
    
@@ -50,16 +57,16 @@
 
 				<p>
 					<b>ID:</b> <span th:text="${manufacturer.id}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>Title:</b> <span th:text="${manufacturer.name}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>cif:</b> <span th:text="${manufacturer.cif}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>direction:</b> <span th:text="${manufacturer.direction}"></span>
-				</p>
+				</p><br>
 				<p>
 					<b>numEmployees:</b> <span th:text="${manufacturer.numEmployees}"></span>
 				</p>
@@ -76,13 +83,7 @@
               
               
               
-            </div>
-          </div>
-
-      
-
-    </div>
-                       
+                 
 
 
 
@@ -91,7 +92,7 @@
 
 
 
-  <div th:replace="layout :: footer"></div>
+  <!-- <div th:replace="layout :: footer" style="z-index: 5000;"></div> -->
 
        <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->

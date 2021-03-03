@@ -41,9 +41,10 @@ public class DemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Manufacturer Amazon=new Manufacturer("84277777","apple","cl madrid plaza",1000);
 		manurepository.save(Amazon);
-		Product product1 = new Product("Iphone 12", "new versions with 8 ram", 3, 500.05);
+		Product product1 = new Product("Iphone 12", "new versions with 8 ram", 3, 500.05,"img/banner.jpg");
+		//product1.setUrlImg("1.png");
 		Product product2 = new Product("Iphone 11", "new versions with 6 ram", 2, 400.0,Amazon);
-		
+		product2.setUrlImg("2.png");
 
 		List<Product> products = Arrays.asList(product1, product2);
 		Amazon.setProducts(products);

@@ -60,7 +60,7 @@ public class CustomerController {
 	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 		customerrepo.save(customer);
 		//model.addAttribute("login", "success...");
-		return "redirect:/login";
+		return "redirect:/customers";
 	}
 	
 	

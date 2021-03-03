@@ -92,10 +92,16 @@ public class ShopCart implements Serializable {
 
 
 
-	@Override
-	public String toString() {
-		return "ShopCart [id=" + id + ", products=" + products + ", customer=" + customer + "]";
-	}
+
+
+	
+	
+	
+
+	
+	  @Override public String toString() { return "ShopCart [id=" + id +
+	  ", products=" + products + ", customer=" + customer + "]"; }
+	 
 	
 	
 

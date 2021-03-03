@@ -65,7 +65,7 @@ ProductRepository	productrepo;
 			model.addAttribute("shopcart_items", shopcart.getProducts().size());
 			model.addAttribute("products", productrepo.findAll());
 
-			return "product-list";
+			return "redirect:/shopcart";
 	}
 	
 	
@@ -138,9 +138,17 @@ ProductRepository	productrepo;
     	  shopcart.setCustomers(customerDBOpt.get());
     	  shopcartrepo.save(shopcart);
     	  session.removeAttribute("shopcart");
+    	  return "redirect:/welcome";
+    	
+      }
+      
+      @GetMapping("/welcome")
+      public String checkout(Model model) {
+    	 
     	  return "shopcart-checkout";
     	
       }
+      
       
       @GetMapping("/shopcarts/list")
       public String showallshopcart(Model model,HttpSession session) {
@@ -148,11 +156,18 @@ ProductRepository	productrepo;
     	  model.addAttribute("customer",customer);
     	  model.addAttribute("usercart",shopcartrepo.findAllByCustomerId(customer.getId()));
     	  
-    	  return "shopcart-list";
+    	  return "redirect:/orders";
     	  
       }
 		
-      
+      @GetMapping("/orders")
+      public String showorders(Model model,HttpSession session) {
+    	  Customer customer=(Customer)session.getAttribute("customer");
+    	  model.addAttribute("customer",customer);
+    	  model.addAttribute("usercart",shopcartrepo.findAllByCustomerId(customer.getId()));
+    	  return "shopcart-list";
+    	  
+      }
       
       
       

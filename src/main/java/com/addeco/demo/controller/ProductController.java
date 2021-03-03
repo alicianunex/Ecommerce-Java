@@ -63,6 +63,7 @@ ShopCartRepository shopcartrepo;
 	
 	@GetMapping("/products/{id}/view")
 	public String viewProduct(@PathVariable Long id, Model model) {
+		
 		Optional<Product> productOpt = productrepo.findById(id);
 		if (!productOpt.isPresent()) {
 			model.addAttribute("error", "ID product not found.");
@@ -72,6 +73,12 @@ ShopCartRepository shopcartrepo;
 		model.addAttribute("product", productOpt.get());
 		return "product-view";
 	}
+	
+	
+	
+
+	
+	
 	
 	@GetMapping("/products/new")
 	public String newProduct(Model model) {

@@ -70,9 +70,22 @@
                                         <li><a th:href="@{/shopcart}">shopcart</a></li>
                                         <li><a th:href="@{/shopcarts/list}">orders</a></li>
                                         <li><a href="contact.html">Contact Us</a></li>
-                                        <li class="last">
+                                        
+                                          <li >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" th:href="@{/customers}">Customers</a>
+          <a class="dropdown-item" th:href="@{/manufacturers}">Store</a>
+          <a class="dropdown-item" th:href="@{/userproducts}">Productcus</a>
+          <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+        </div>
+      </li>
+                                        
+                                       <!--  <li class="last">
                                             <a href="#"><img src="img/search_icon.png" alt="icon" /></a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>

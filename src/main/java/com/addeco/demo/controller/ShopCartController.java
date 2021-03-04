@@ -145,7 +145,7 @@ ProductRepository	productrepo;
       
       @GetMapping("/welcome")
       public String checkout(Model model) {
-    	  
+    		
     	  return "shopcart-checkout";
     	
       }

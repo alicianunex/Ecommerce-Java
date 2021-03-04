@@ -83,7 +83,7 @@ ShopCartRepository shopcartrepo;
 	@GetMapping("/products/new")
 	public String newProduct(Model model) {
 		model.addAttribute("product", new Product());
-	//	model.addAttribute("manufacturers", manufacturerrep.findAll());
+	
 		return "product-edit";
 		
 	}

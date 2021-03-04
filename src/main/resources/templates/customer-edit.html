@@ -76,7 +76,10 @@ body {
 		<div class="col-md-8 mx-auto">
 			<div class="contact-form">
 				<h1>Get in Touch</h1>
+				<h1>  <span th:text="${customer.id}"></span></h1>
 				<form th:action="@{/customers}" th:object="${customer}" method="POST">
+				
+					<input type="hidden" th:field="*{id}">
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">

@@ -46,6 +46,8 @@ public class Manufacturer implements Serializable {
 	private List<Product> products= new ArrayList<Product>();
 
 
+
+	
 	public Manufacturer() {
 		
 		super();

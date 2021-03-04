@@ -59,7 +59,6 @@ public class CustomerController {
 	@PostMapping("/customers")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 		customerrepo.save(customer);
-		//model.addAttribute("login", "success...");
 		return "redirect:/customers";
 	}
 	
@@ -76,7 +75,7 @@ public class CustomerController {
 			
 			return "customer-edit";
 		}
-		model.addAttribute("error", "No existe el producto solicitado");
+		model.addAttribute("error", "No existe el customer solicitado");
 		return "redirect:/customers";
 		
 	}

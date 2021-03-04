@@ -90,13 +90,13 @@ public class Product implements Serializable {
 
 
 
-	public Product(String name, String description, Integer quantity, Double price, String urlImg) {
+	public Product(String name, String description, Integer quantity, Double price) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.quantity = quantity;
 		this.price = price;
-		this.urlImg = urlImg;
+		
 	}
 
 

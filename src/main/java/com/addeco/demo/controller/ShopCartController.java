@@ -136,6 +136,7 @@ ProductRepository	productrepo;
     		  return "redirect:/products";
     	  
     	  shopcart.setCustomers(customerDBOpt.get());
+    	  
     	  shopcartrepo.save(shopcart);
     	  session.removeAttribute("shopcart");
     	  return "redirect:/welcome";

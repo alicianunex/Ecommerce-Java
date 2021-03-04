@@ -1,6 +1,8 @@
 package com.addeco.demo.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class ShopCart implements Serializable {
 	@GeneratedValue
 	@Column(name="id")
 	private Long id;
-
+    
 	
 
 	@ManyToMany
@@ -45,7 +47,16 @@ public class ShopCart implements Serializable {
 	private Customer customer;
 
 	
-	
+	public String date() {
+		
+		 LocalDateTime myDateObj = LocalDateTime.now();  
+		    System.out.println("Before Formatting: " + myDateObj);  
+		    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");  
+		    
+		    String formattedDate = myDateObj.format(myFormatObj);  
+		    System.out.println("After Formatting: " + formattedDate);  
+		    return formattedDate;
+	}
 	public List<Product> getProducts() {
 		return products;
 	}
